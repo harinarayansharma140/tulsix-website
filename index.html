@@ -256,6 +256,34 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
+.founder-visual {
+  position: relative;
+  padding: 30px 20px;
+}
+
+.founder-visual::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(0,255,180,0.08), transparent 70%);
+  border-radius: 50%;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.founder-avatar-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top; /* 👈 shifts focus upward (face centered) */
+  border: 3px solid rgba(255,255,255,0.8);
+}
+
+.founder-avatar-img:hover {
+  transform: scale(1.05);
+}
 </style>
 
 <script type="application/ld+json">
@@ -428,7 +456,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
     <div class="founder-grid">
       <div class="founder-card reveal">
         <div class="founder-visual">
-          <div class="founder-avatar">HN</div>
+          <img src="founder.png" alt="Hari Narayan Sharma" class="founder-avatar-img" />
           <div class="founder-avatar-name">Hari Narayan Sharma</div>
           <div class="founder-avatar-role">Founder & Lead Engineer</div>
         </div>
