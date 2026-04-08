@@ -175,6 +175,27 @@ nav.scrolled{background:rgba(14,16,23,.95);backdrop-filter:blur(24px);padding:.7
 
 .product-cta{text-align:center;margin-top:3rem}
 
+/* PRODUCTS SHOWCASE */
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.product-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:all .4s ease}
+.product-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.3)}
+.product-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.product-card-logo{display:flex;align-items:center;gap:.7rem}
+.product-card-icon{width:44px;height:44px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:800;font-size:.7rem;color:var(--slate-950)}
+.product-card-logo h3{font-size:1.1rem;font-weight:700;color:var(--white)}
+.product-card-logo span{font-size:.72rem;color:var(--slate-400);display:block}
+.product-status{font-family:var(--font-mono);font-size:.65rem;font-weight:600;letter-spacing:.06em;padding:.3rem .8rem;border-radius:100px;text-transform:uppercase}
+.product-status.live{background:rgba(93,202,165,.12);color:var(--teal);border:1px solid rgba(93,202,165,.25)}
+.product-status.dev{background:rgba(255,189,46,.1);color:#ffbd2e;border:1px solid rgba(255,189,46,.2)}
+.product-status.planned{background:rgba(168,171,186,.08);color:var(--slate-300);border:1px solid var(--slate-600)}
+.product-card p{font-size:.88rem;color:var(--slate-300);line-height:1.7;margin-bottom:1rem}
+.product-card-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.product-card-tag{font-family:var(--font-mono);font-size:.6rem;font-weight:500;color:var(--teal);background:var(--teal-dim);padding:.2rem .6rem;border-radius:100px;letter-spacing:.04em}
+.product-card-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:600;color:var(--teal);text-decoration:none;transition:all .3s}
+.product-card-link:hover{gap:.6rem}
+.product-card-link.disabled{color:var(--slate-500);pointer-events:none}
+@media(max-width:768px){.products-grid{grid-template-columns:1fr}}
+
 /* SERVICES */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3.5rem}
 .service-card{background:var(--slate-900);border:1px solid var(--slate-700);border-radius:14px;padding:2rem;position:relative;overflow:hidden;transition:all .4s ease}
@@ -325,7 +346,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   </a>
   <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
-    <a href="#capilot">CAPilot</a>
+    <a href="#products">Products</a>
     <a href="#services">Services</a>
     <a href="#founder">Founder</a>
     <a href="#contact" class="nav-cta">Get In Touch</a>
@@ -449,6 +470,57 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   </div>
 </section>
 
+<!-- PRODUCTS -->
+<section class="section bg-800" id="products">
+  <div class="container">
+    <div class="section-label reveal">// Our Products</div>
+    <div class="section-title reveal">What We're Building</div>
+    <p class="section-sub reveal">Production-grade platforms designed to solve real industry problems — from CA firms to school transport safety.</p>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="product-card-header">
+          <div class="product-card-logo">
+            <div class="product-card-icon">CA</div>
+            <div><h3>CAPilot</h3><span>Practice Management for CA Firms</span></div>
+          </div>
+          <span class="product-status live">Live</span>
+        </div>
+        <p>The complete operating system for Chartered Accountant firms — client management, task tracking, GST invoicing, compliance monitoring, document vault, and team management in one integrated platform.</p>
+        <div class="product-card-tags">
+          <span class="product-card-tag">SaaS</span>
+          <span class="product-card-tag">Client Mgmt</span>
+          <span class="product-card-tag">GST Invoicing</span>
+          <span class="product-card-tag">Compliance</span>
+          <span class="product-card-tag">Dashboard</span>
+        </div>
+        <a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer" class="product-card-link">Visit capilot.tulsix.com <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-card-header">
+          <div class="product-card-logo">
+            <div class="product-card-icon" style="background:#ffbd2e;color:var(--slate-950)">ST</div>
+            <div><h3>STIS</h3><span>School Transport Intelligence System</span></div>
+          </div>
+          <span class="product-status dev">In Development</span>
+        </div>
+        <p>A comprehensive school bus tracking and student safety platform — real-time GPS tracking, smart pickup/drop notifications, one-stop-before alerts, speed monitoring, panic system, and a parent mobile app with live ETA.</p>
+        <div class="product-card-tags">
+          <span class="product-card-tag">IoT</span>
+          <span class="product-card-tag">GPS Tracking</span>
+          <span class="product-card-tag">Safety Alerts</span>
+          <span class="product-card-tag">Parent App</span>
+          <span class="product-card-tag">Admin Dashboard</span>
+          <span class="product-card-tag">Multi-School SaaS</span>
+        </div>
+        <span class="product-card-link disabled">Coming Soon</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="section bg-900" id="services">
   <div class="container">
@@ -557,7 +629,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
         <a href="#" class="nav-brand"><div class="nav-leaf"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#2C2C2C"/><g transform="translate(12,10) scale(0.27)"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" fill="#1D9E75" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" fill="#0F6E56" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" fill="#085041" opacity="0.4"/></g></svg></div><div class="nav-name">Tulsi<span>X</span></div></a>
         <p>From Vision to Digital Reality. We build production-grade SaaS platforms and digital products that help businesses operate smarter and grow with confidence.</p>
       </div>
-      <div class="footer-col"><h4>Product</h4><a href="#capilot">CAPilot</a><a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer">Try CAPilot</a><a href="#capilot">Features</a></div>
+      <div class="footer-col"><h4>Products</h4><a href="#capilot">CAPilot</a><a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer">Try CAPilot</a><a href="#products">STIS — Coming Soon</a><a href="#products">All Products</a></div>
       <div class="footer-col"><h4>Company</h4><a href="#about">About Us</a><a href="#founder">Founder</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
       <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="cookies.html">Cookie Policy</a></div>
     </div>
