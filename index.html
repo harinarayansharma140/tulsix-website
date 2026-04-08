@@ -227,6 +227,27 @@ nav.scrolled{background:rgba(14,16,23,.95);backdrop-filter:blur(24px);padding:.7
 .founder-link:hover{border-color:var(--teal);color:var(--teal)}
 @media(max-width:960px){.founder-grid{grid-template-columns:1fr;gap:2rem}}
 
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;margin-top:3rem}
+.team-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:14px;padding:1.5rem;text-align:center;transition:all .4s ease;position:relative;overflow:hidden}
+.team-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.team-card.founder-highlight{border-color:rgba(93,202,165,.3);background:linear-gradient(135deg,var(--slate-800),rgba(93,202,165,.04))}
+.team-card.founder-highlight::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal)}
+.team-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;overflow:hidden;border:2px solid var(--slate-600);transition:border-color .3s}
+.team-card:hover .team-avatar{border-color:var(--teal)}
+.team-avatar img{width:100%;height:100%;object-fit:cover;object-position:top}
+.team-avatar-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--slate-700),var(--slate-600));display:flex;align-items:center;justify-content:center;font-family:var(--font-primary);font-size:1.2rem;font-weight:700;color:var(--teal)}
+.team-card h4{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.2rem}
+.team-card .team-role{font-family:var(--font-mono);font-size:.65rem;color:var(--teal);letter-spacing:.04em;line-height:1.4}
+.team-card .team-tag{display:inline-block;margin-top:.6rem;font-family:var(--font-mono);font-size:.58rem;font-weight:600;color:var(--slate-950);background:var(--teal);padding:.15rem .5rem;border-radius:100px;letter-spacing:.04em;text-transform:uppercase}
+.team-hiring{background:var(--slate-900);border:1.5px dashed var(--slate-600);border-radius:14px;padding:1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;transition:all .3s ease}
+.team-hiring:hover{border-color:var(--teal)}
+.team-hiring-icon{font-size:2rem;margin-bottom:.8rem;opacity:.5}
+.team-hiring h4{font-size:.9rem;font-weight:600;color:var(--slate-300);margin-bottom:.3rem}
+.team-hiring p{font-size:.75rem;color:var(--slate-500)}
+@media(max-width:960px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;margin-top:3rem}
 .contact-info h3{font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:1rem}
@@ -348,7 +369,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
     <a href="#about">About</a>
     <a href="#products">Products</a>
     <a href="#services">Services</a>
-    <a href="#founder">Founder</a>
+    <a href="#team">Team</a>
     <a href="#contact" class="nav-cta">Get In Touch</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -553,7 +574,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
         <div class="founder-visual">
           <img src="founder.png" alt="Hari Narayan Sharma" class="founder-avatar-img" />
           <div class="founder-avatar-name">Hari Narayan Sharma</div>
-          <div class="founder-avatar-role">Founder & Lead Engineer</div>
+          <div class="founder-avatar-role">Founder, CEO & CTO</div>
         </div>
         <div class="founder-badge">
           <div class="founder-badge-item"><div class="val">Founder</div><div class="lbl">Role</div></div>
@@ -563,7 +584,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
       </div>
       <div class="founder-info reveal">
         <h3>Hari Narayan Sharma</h3>
-        <div class="role">Founder & Lead Engineer, TulsiX Technologies</div>
+        <div class="role">Founder, CEO & CTO — TulsiX Technologies</div>
         <p>A full-stack engineer with deep expertise in building production-grade software — from SaaS platforms to enterprise web applications. Hari founded TulsiX Technologies with a singular mission: to build technology that actually works, at scale, from day one.</p>
         <p>His hands-on approach means every product that ships from TulsiX — including CAPilot — carries the same standard of engineering rigor, clean architecture, and meticulous attention to detail that defines the company's DNA.</p>
         <p>When not building software, he's probably thinking about how to make it better.</p>
@@ -574,6 +595,68 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section bg-900" id="team">
+  <div class="container">
+    <div class="section-label reveal">// The Team</div>
+    <div class="section-title reveal">People Behind the Products</div>
+    <p class="section-sub reveal">A focused team of engineers building production-grade software with craft and care.</p>
+    <div class="team-grid">
+
+      <div class="team-card founder-highlight reveal">
+        <div class="team-avatar">
+          <img src="founder.png" alt="Hari Narayan Sharma">
+        </div>
+        <h4>Hari Narayan Sharma</h4>
+        <div class="team-role">Founder, CEO & CTO</div>
+        <span class="team-tag">Founder</span>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar">
+          <div class="team-avatar-placeholder">AS</div>
+        </div>
+        <h4>Anil Sharma</h4>
+        <div class="team-role">Sr. Full Stack Engineer / Team Lead</div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar">
+          <div class="team-avatar-placeholder">SG</div>
+        </div>
+        <h4>Shubham Gupta</h4>
+        <div class="team-role">Senior Engineer</div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar">
+          <div class="team-avatar-placeholder">VP</div>
+        </div>
+        <h4>Vikash Pandey</h4>
+        <div class="team-role">Software Engineer</div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-avatar">
+          <div class="team-avatar-placeholder">LP</div>
+        </div>
+        <h4>Leeladhar Pandey</h4>
+        <div class="team-role">Software Engineer</div>
+      </div>
+
+    </div>
+
+    <div class="team-grid" style="grid-template-columns:repeat(5,1fr);margin-top:1.2rem">
+      <div class="team-hiring reveal">
+        <div class="team-hiring-icon">+</div>
+        <h4>We're Growing</h4>
+        <p>More team members joining soon</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -630,7 +713,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
         <p>From Vision to Digital Reality. We build production-grade SaaS platforms and digital products that help businesses operate smarter and grow with confidence.</p>
       </div>
       <div class="footer-col"><h4>Products</h4><a href="#capilot">CAPilot</a><a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer">Try CAPilot</a><a href="#products">STIS — Coming Soon</a><a href="#products">All Products</a></div>
-      <div class="footer-col"><h4>Company</h4><a href="#about">About Us</a><a href="#founder">Founder</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="#about">About Us</a><a href="#founder">Founder</a><a href="#team">Our Team</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
       <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="cookies.html">Cookie Policy</a></div>
     </div>
     <div class="footer-legal">
