@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
+<title>Blog — TulsiX Technologies | Insights on SaaS, IoT & Digital Transformation</title>
+<meta name="description" content="Insights, guides, and expert perspectives on SaaS development, CA practice management, school transport safety, IoT, and digital transformation from TulsiX Technologies.">
+<meta property="og:title" content="Blog — TulsiX Technologies">
+<meta property="og:description" content="Insights on SaaS, IoT, AI, and building production-grade digital products.">
+<meta property="og:url" content="https://tulsix.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://tulsix.com/tulsix-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://tulsix.com/blog/">
+<link rel="icon" type="image/svg+xml" href="../tulsix-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --slate-950:#0E1017;--slate-900:#131620;--slate-800:#1A1E2E;--slate-700:#2C3040;--slate-600:#3D4258;--slate-500:#555A70;--slate-400:#7E8399;--slate-300:#A8ABBA;
+  --teal:#5DCAA5;--teal-light:#7EDABC;--teal-dim:rgba(93,202,165,.12);
+  --white:#F8F9FA;--off-white:#E8EAED;--pure-white:#fff;
+  --font-primary:'Sora',system-ui,sans-serif;
+  --font-display:'Crimson Pro',Georgia,serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-primary);background:var(--slate-950);color:var(--off-white);-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(14,16,23,.95);backdrop-filter:blur(24px);box-shadow:0 1px 30px rgba(0,0,0,.4)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-leaf{width:32px;height:32px;flex-shrink:0}
+.nav-name{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.nav-name span{color:var(--teal)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--slate-300);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.03em;transition:color .3s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--teal)}
+.nav-cta{background:var(--teal)!important;color:var(--slate-950)!important;padding:.5rem 1.3rem!important;border-radius:6px;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;z-index:1001}
+.hamburger span{width:22px;height:2px;background:var(--white);transition:all .3s ease;border-radius:2px}
+@media(max-width:960px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:380px;height:100vh;background:var(--slate-900);flex-direction:column;padding:6rem 2.5rem;gap:1.8rem;transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:-20px 0 60px rgba(0,0,0,.6)}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.1rem}
+}
+
+.blog-hero{padding:8rem 5% 3rem;text-align:center}
+.blog-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:-.03em;margin-bottom:.8rem}
+.blog-hero p{font-size:1.05rem;color:var(--slate-300);max-width:600px;margin:0 auto;line-height:1.7}
+
+.blog-grid{max-width:1100px;margin:0 auto;padding:0 5% 5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:960px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+
+.blog-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:14px;overflow:hidden;transition:all .4s ease;text-decoration:none;display:flex;flex-direction:column}
+.blog-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.3)}
+.blog-card-img{width:100%;height:180px;background:linear-gradient(135deg,var(--slate-700),var(--slate-800));display:flex;align-items:center;justify-content:center;font-size:2.5rem;border-bottom:1px solid var(--slate-600)}
+.blog-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.blog-card-meta{font-family:var(--font-mono);font-size:.65rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
+.blog-card h2{font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:.6rem}
+.blog-card p{font-size:.82rem;color:var(--slate-400);line-height:1.6;flex:1}
+.blog-card-read{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.78rem;font-weight:600;color:var(--teal);transition:gap .3s}
+.blog-card:hover .blog-card-read{gap:.6rem}
+
+.blog-cta{max-width:700px;margin:0 auto 4rem;text-align:center;padding:2.5rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:16px}
+.blog-cta h3{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.blog-cta p{font-size:.88rem;color:var(--slate-400);margin-bottom:1.2rem}
+.blog-cta a{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal);color:var(--slate-950);padding:.7rem 1.5rem;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .3s}
+.blog-cta a:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(93,202,165,.25)}
+
+footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding:2rem 5%;text-align:center}
+footer p{font-size:.75rem;color:var(--slate-400);line-height:1.6}
+footer a{color:var(--teal);text-decoration:none}
+footer a:hover{text-decoration:underline}
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"TulsiX Technologies Blog","url":"https://tulsix.com/blog/","description":"Insights on SaaS development, CA practice management, school transport safety, and digital transformation.","publisher":{"@type":"Organization","name":"TulsiX Technologies Private Limited","url":"https://tulsix.com"}}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-leaf"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#2C2C2C"/><g transform="translate(12,10) scale(0.27)"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" fill="#1D9E75" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" fill="#0F6E56" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" fill="#085041" opacity="0.4"/></g></svg></div>
+    <div class="nav-name">Tulsi<span>X</span></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#products">Products</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#team">Team</a>
+    <a href="./" class="active">Blog</a>
+    <a href="../index.html#contact" class="nav-cta">Get In Touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="blog-hero">
+  <h1>Insights & Ideas</h1>
+  <p>Expert perspectives on SaaS development, practice management, school transport safety, and building digital products that scale.</p>
+</section>
+
+<div class="blog-grid">
+
+  <a href="how-to-digitize-ca-practice.html" class="blog-card">
+    <div class="blog-card-img">🏛️</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">CAPilot &middot; April 9, 2026 &middot; 8 min read</div>
+      <h2>How to Digitize Your CA Practice in 2026 — A Complete Guide</h2>
+      <p>Most CA firms still run on spreadsheets, WhatsApp, and paper files. Here's a practical roadmap to go fully digital without disrupting your workflow.</p>
+      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </a>
+
+  <a href="why-schools-need-gps-bus-tracking.html" class="blog-card">
+    <div class="blog-card-img">🚌</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">STIS &middot; April 9, 2026 &middot; 7 min read</div>
+      <h2>Why Indian Schools Need GPS Bus Tracking Systems in 2026</h2>
+      <p>Every year, preventable incidents happen on school buses. Real-time GPS tracking, speed alerts, and parent notifications can change that.</p>
+      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </a>
+
+  <a href="what-makes-production-grade-saas.html" class="blog-card">
+    <div class="blog-card-img">⚙️</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">Engineering &middot; April 9, 2026 &middot; 6 min read</div>
+      <h2>What Makes a SaaS Platform "Production-Grade"?</h2>
+      <p>Everyone claims production-ready. But what does it actually mean? Architecture, security, scaling, monitoring — here's what separates real from demo.</p>
+      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </a>
+
+</div>
+
+<div class="blog-cta">
+  <h3>Have a Project in Mind?</h3>
+  <p>We build production-grade SaaS platforms and digital products for businesses ready to scale.</p>
+  <a href="../index.html#contact">Start a Conversation <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+
+<footer>
+  <p>&copy; 2026 TulsiX Technologies Private Limited. All rights reserved. | <a href="../privacy.html">Privacy</a> | <a href="../terms.html">Terms</a> | <a href="../index.html">Home</a></p>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')})});
+</script>
+</body>
+</html>
