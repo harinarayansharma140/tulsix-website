@@ -278,6 +278,18 @@ nav.scrolled{background:rgba(14,16,23,.95);backdrop-filter:blur(24px);padding:.7
 .btn-dark{display:inline-flex;align-items:center;gap:.5rem;background:var(--slate-950);color:var(--teal);padding:1rem 2.2rem;border:none;border-radius:8px;font-family:var(--font-primary);font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s ease}
 .btn-dark:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(0,0,0,.3)}
 
+/* FAQ */
+.faq-list{max-width:800px;margin:3rem auto 0;display:flex;flex-direction:column;gap:.8rem}
+.faq-item{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:12px;overflow:hidden;transition:border-color .3s}
+.faq-item.open{border-color:rgba(93,202,165,.25)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;background:none;border:none;cursor:pointer;text-align:left;gap:1rem}
+.faq-question h3{font-size:.95rem;font-weight:600;color:var(--white);line-height:1.4}
+.faq-icon{width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.2rem;font-weight:300;transition:transform .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-answer p{padding:0 1.5rem 1.2rem;font-size:.88rem;color:var(--slate-300);line-height:1.75}
+.faq-answer a{color:var(--teal);text-decoration:underline}
+
 /* FOOTER */
 footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding:4rem 5% 1.5rem;color:var(--slate-400)}
 .footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}
@@ -677,6 +689,97 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label reveal" style="text-align:center">// Common Questions</div>
+    <div class="section-title reveal" style="text-align:center">Frequently Asked Questions</div>
+    <div class="faq-list">
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>What does TulsiX Technologies do?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>TulsiX Technologies is a software company based in Mathura, India that builds production-grade SaaS platforms and digital products. We offer SaaS development, custom web applications, IoT software, AI/ML solutions, cybersecurity, data analytics, cloud & DevOps, and technical consultancy.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>What is CAPilot?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>CAPilot is a complete practice management platform for Chartered Accountant (CA) firms. It replaces spreadsheets and WhatsApp groups with a single integrated platform — client management, task tracking, GST invoicing, compliance monitoring, document vault, and team management. Visit <a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer">capilot.tulsix.com</a> to explore.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>Is CAPilot free to try?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Visit <a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer">capilot.tulsix.com</a> to explore CAPilot. For pricing details and trial availability, contact us at <a href="mailto:contact@tulsix.com">contact@tulsix.com</a> or call +91 79824 02673. We believe in transparent, honest pricing with no hidden costs.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>What is STIS and when will it launch?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>STIS (School Transport Intelligence System) is a school bus tracking and student safety platform currently under development. It features real-time GPS tracking, speed monitoring, one-stop-before alerts, panic button, and a parent mobile app. Launch date will be announced soon.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>Can TulsiX build a custom SaaS platform for my business?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Yes. We specialize in end-to-end SaaS product development — architecture, backend, frontend, deployment, and scaling. Whether you need a full platform, a web application, or technical consultancy, we handle the complete product lifecycle with production-grade engineering.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>What technology stack does TulsiX use?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>We work with modern technologies including React for frontends, .NET for backends, Azure cloud infrastructure, GitHub Actions for CI/CD, MQTT and IoT protocols, REST APIs, and various AI/ML and data engineering tools. The stack is chosen based on project requirements.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>Where is TulsiX Technologies located?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>TulsiX Technologies Private Limited is headquartered in Mathura, Uttar Pradesh, India (PIN 281502). We were incorporated in March 2026 with CIN U62010UW2026PTC251073. We serve clients across India and remotely.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>How do I get started with TulsiX?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>You can reach us through our <a href="#contact">website contact form</a>, email us at <a href="mailto:contact@tulsix.com">contact@tulsix.com</a>, call +91 79824 02673, or message us on WhatsApp. We respond to all enquiries within 24 hours.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>Does TulsiX offer support after project delivery?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>Yes. We provide post-launch support and maintenance for all products and custom projects — bug fixes, performance monitoring, feature updates, and infrastructure management to ensure your software runs reliably at scale.</p></div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <h3>Who founded TulsiX Technologies?</h3>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer"><p>TulsiX Technologies was founded by Hari Narayan Sharma, a full-stack engineer who serves as the company's CEO and CTO. The company has a focused team of engineers including senior full-stack developers and software engineers building production-grade software.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-content reveal">
@@ -767,6 +870,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
 <script>
 document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('hide'),1500);if(!localStorage.getItem('cookieConsent')){setTimeout(()=>document.getElementById('cookieBanner').classList.add('visible'),2000)}});
 function acceptCookies(){localStorage.setItem('cookieConsent','true');document.getElementById('cookieBanner').classList.remove('visible')}
+function toggleFaq(btn){const item=btn.parentElement;const answer=item.querySelector('.faq-answer');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-answer').style.maxHeight=null});if(!isOpen){item.classList.add('open');answer.style.maxHeight=answer.scrollHeight+'px'}}
 const navbar=document.getElementById('navbar'),backToTop=document.getElementById('backToTop');
 window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>60);backToTop.classList.toggle('visible',window.scrollY>500)});
 const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
