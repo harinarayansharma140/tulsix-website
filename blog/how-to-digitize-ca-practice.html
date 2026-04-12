@@ -97,6 +97,48 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
 footer p{font-size:.75rem;color:var(--slate-400);line-height:1.6}
 footer a{color:var(--teal);text-decoration:none}
 footer a:hover{text-decoration:underline}
+
+.breadcrumb{font-size:.7rem;color:var(--slate-400);margin-bottom:1rem;display:flex;align-items:center;gap:.4rem;justify-content:center}
+.breadcrumb a{color:var(--slate-400);text-decoration:none;transition:color .3s}
+.breadcrumb a:hover{color:var(--teal)}
+.breadcrumb .current{color:var(--teal)}
+
+.author-box{max-width:700px;margin:2rem auto;padding:1.5rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:14px;display:flex;gap:1.2rem;align-items:center}
+.author-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#1B7A5A);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:var(--slate-950);flex-shrink:0}
+.author-info{flex:1}
+.author-name{font-size:.95rem;font-weight:700;color:var(--white)}
+.author-role{font-family:var(--font-mono);font-size:.7rem;color:var(--teal);margin-bottom:.4rem}
+.author-bio{font-size:.82rem;color:var(--slate-300);line-height:1.6;margin-bottom:.5rem}
+.author-links{display:flex;gap:.8rem}
+.author-links a{font-size:.75rem;color:var(--teal);text-decoration:none;font-weight:600;transition:color .3s}
+.author-links a:hover{color:var(--teal-light)}
+
+.share-section{max-width:700px;margin:1.5rem auto;display:flex;align-items:center;gap:1rem;padding:1rem 0;border-top:1px solid var(--slate-700);border-bottom:1px solid var(--slate-700)}
+.share-label{font-family:var(--font-mono);font-size:.7rem;color:var(--slate-400);text-transform:uppercase;letter-spacing:.08em}
+.share-buttons{display:flex;gap:.5rem}
+.share-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--slate-600);display:flex;align-items:center;justify-content:center;color:var(--slate-300);text-decoration:none;font-size:.85rem;transition:all .3s}
+.share-btn:hover{border-color:var(--teal);color:var(--teal);background:rgba(93,202,165,.08)}
+
+.related-posts{max-width:700px;margin:0 auto 3rem;padding:2rem 5%}
+.related-posts h3{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1rem}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.related-grid{grid-template-columns:1fr}}
+.related-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:12px;padding:1.2rem;text-decoration:none;transition:all .3s}
+.related-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-2px)}
+.related-meta{font-family:var(--font-mono);font-size:.6rem;color:var(--teal);text-transform:uppercase;letter-spacing:.06em}
+.related-card h4{font-size:.88rem;font-weight:600;color:var(--white);margin-top:.4rem;line-height:1.35}
+
+/* AMBIENT EFFECTS */
+.page-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.page-bg .glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.06),transparent 70%)}
+.page-bg .glow-1{width:500px;height:500px;top:-10%;right:-5%;animation:pgPulse 8s ease-in-out infinite}
+.page-bg .glow-2{width:400px;height:400px;bottom:10%;left:-8%;animation:pgPulse 8s ease-in-out 3s infinite}
+.page-bg .leaf{position:absolute;opacity:.025;pointer-events:none}
+.page-bg .leaf-1{bottom:15%;right:5%;width:140px;height:135px}
+.page-bg .leaf-2{top:30%;left:3%;width:100px;height:96px;transform:rotate(15deg)}
+.page-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(93,202,165,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(93,202,165,.03) 1px,transparent 1px);background-size:80px 80px}
+@keyframes pgPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
+@media(max-width:960px){.page-bg .leaf{display:none}}
 </style>
 
 <script type="application/ld+json">
@@ -115,13 +157,22 @@ footer a:hover{text-decoration:underline}
     "url": "https://tulsix.com"
   },
   "datePublished": "2026-04-09",
-  "dateModified": "2026-04-09",
+  "dateModified": "2026-04-13",
   "mainEntityOfPage": "https://tulsix.com/blog/how-to-digitize-ca-practice.html",
   "keywords": ["CA practice management software", "digitize CA firm India", "CA firm software 2026", "CAPilot", "GST invoicing for CA"]
 }
 </script>
 </head>
 <body>
+
+<!-- AMBIENT BACKGROUND -->
+<div class="page-bg">
+  <div class="grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="leaf leaf-1"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+  <div class="leaf leaf-2"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+</div>
 
 <nav>
   <a href="../index.html" class="nav-brand">
@@ -140,8 +191,11 @@ footer a:hover{text-decoration:underline}
 </nav>
 
 <header class="article-header">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a> <span>›</span> <a href="./">Blog</a> <span>›</span> <span class="current">Digitize Your CA Practice</span>
+  </nav>
   <a href="./" class="article-back"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to Blog</a>
-  <div class="article-meta">CAPilot &middot; April 9, 2026 &middot; 8 min read</div>
+  <div class="article-meta">CAPilot &middot; <time datetime="2026-04-09">April 9, 2026</time> &middot; 8 min read &middot; Updated <time datetime="2026-04-13">April 13, 2026</time></div>
   <h1>How to Digitize Your CA Practice in 2026 — A Complete Guide</h1>
   <p class="subtitle">Most CA firms still run on spreadsheets, WhatsApp, and paper files. Here's a practical roadmap to go fully digital — without disrupting your workflow.</p>
 </header>
@@ -285,6 +339,28 @@ footer a:hover{text-decoration:underline}
 
 </article>
 
+<div class="author-box">
+  <div class="author-avatar">HNS</div>
+  <div class="author-info">
+    <div class="author-name">Hari Narayan Sharma</div>
+    <div class="author-role">Founder & CEO, TulsiX Technologies</div>
+    <p class="author-bio">Building production-grade SaaS platforms that help businesses operate smarter. Creator of CAPilot — the complete operating system for CA firms.</p>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/hari-narayan-sharma-350818104" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/harinarayansharma140" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<div class="share-section">
+  <span class="share-label">Share this article</span>
+  <div class="share-buttons">
+    <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=550,height=420');return false" class="share-btn" title="Share on X">&#x1D54F;</a>
+    <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank','width=550,height=420');return false" class="share-btn" title="Share on LinkedIn">in</a>
+    <a href="#" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='&#10003;';setTimeout(()=>this.textContent='&#128279;',2000)});return false" class="share-btn" title="Copy link">&#128279;</a>
+  </div>
+</div>
+
 <hr class="article-divider">
 
 <div class="article-cta">
@@ -293,6 +369,20 @@ footer a:hover{text-decoration:underline}
   <div class="cta-buttons">
     <a href="https://capilot.in" target="_blank" rel="noopener" class="btn-teal">Explore CAPilot <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <a href="../index.html#contact" class="btn-ghost">Contact Us <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<div class="related-posts">
+  <h3>Related Articles</h3>
+  <div class="related-grid">
+    <a href="capilot-vs-tally-for-ca-firms.html" class="related-card">
+      <span class="related-meta">CAPilot · 9 min read</span>
+      <h4>CAPilot vs Tally for CA Firms — Which One Do You Actually Need?</h4>
+    </a>
+    <a href="how-to-choose-saas-development-partner.html" class="related-card">
+      <span class="related-meta">SaaS & Strategy · 8 min read</span>
+      <h4>How to Choose a SaaS Development Partner in India — 10 Things to Check</h4>
+    </a>
   </div>
 </div>
 

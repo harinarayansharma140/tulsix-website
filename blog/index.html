@@ -6,10 +6,10 @@
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
-<title>Blog — TulsiX Technologies | Insights on SaaS, IoT & Digital Transformation</title>
-<meta name="description" content="Insights, guides, and expert perspectives on SaaS development, CA practice management, school transport safety, IoT, and digital transformation from TulsiX Technologies.">
+<title>Blog — TulsiX Technologies | Insights on SaaS, AI, Engineering & Digital Transformation</title>
+<meta name="description" content="Insights, guides, and expert perspectives on SaaS development, AI, engineering deep-dives, CA practice management, and digital transformation from TulsiX Technologies.">
 <meta property="og:title" content="Blog — TulsiX Technologies">
-<meta property="og:description" content="Insights on SaaS, IoT, AI, and building production-grade digital products.">
+<meta property="og:description" content="Insights on SaaS, AI, engineering, and building enterprise-ready digital products.">
 <meta property="og:url" content="https://tulsix.com/blog/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://tulsix.com/tulsix-og.png">
@@ -51,11 +51,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 5%;display:fle
   .nav-links a{font-size:1.1rem}
 }
 
-.blog-hero{padding:8rem 5% 3rem;text-align:center}
+/* AMBIENT EFFECTS */
+.blog-page-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.blog-page-bg .glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.06),transparent 70%)}
+.blog-page-bg .glow-1{width:500px;height:500px;top:-10%;right:-5%;animation:bpPulse 8s ease-in-out infinite}
+.blog-page-bg .glow-2{width:400px;height:400px;bottom:10%;left:-8%;animation:bpPulse 8s ease-in-out 3s infinite}
+.blog-page-bg .leaf{position:absolute;opacity:.025;pointer-events:none}
+.blog-page-bg .leaf-1{bottom:15%;right:5%;width:140px;height:135px}
+.blog-page-bg .leaf-2{top:25%;left:3%;width:100px;height:96px;transform:rotate(15deg)}
+.blog-page-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(93,202,165,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(93,202,165,.03) 1px,transparent 1px);background-size:80px 80px}
+@keyframes bpPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
+@media(max-width:960px){.blog-page-bg .leaf{display:none}}
+
+.blog-hero{padding:8rem 5% 2rem;text-align:center;position:relative;z-index:1}
 .blog-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:-.03em;margin-bottom:.8rem}
 .blog-hero p{font-size:1.05rem;color:var(--slate-300);max-width:600px;margin:0 auto;line-height:1.7}
 
-.blog-grid{max-width:1100px;margin:0 auto;padding:0 5% 5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+/* CATEGORY FILTERS */
+.blog-filters{max-width:1100px;margin:0 auto;padding:0 5% 2rem;display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.filter-btn{font-family:var(--font-mono);font-size:.68rem;font-weight:500;color:var(--slate-400);background:var(--slate-800);border:1px solid var(--slate-600);padding:.4rem 1rem;border-radius:100px;cursor:pointer;transition:all .3s;letter-spacing:.04em;text-transform:uppercase}
+.filter-btn:hover,.filter-btn.active{color:var(--teal);border-color:var(--teal);background:var(--teal-dim)}
+
+.blog-grid{max-width:1100px;margin:0 auto;padding:0 5% 3rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 @media(max-width:960px){.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
 
@@ -66,8 +83,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 5%;display:fle
 .blog-card-meta{font-family:var(--font-mono);font-size:.65rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
 .blog-card h2{font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:.6rem}
 .blog-card p{font-size:.82rem;color:var(--slate-400);line-height:1.6;flex:1}
-.blog-card-read{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;font-size:.78rem;font-weight:600;color:var(--teal);transition:gap .3s}
+.blog-card-author{display:flex;align-items:center;gap:.5rem;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--slate-700)}
+.blog-card-author-avatar{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#1B7A5A);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:800;color:var(--slate-950);flex-shrink:0}
+.blog-card-author-name{font-size:.7rem;color:var(--slate-300);font-weight:500}
+.blog-card-read{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;font-weight:600;color:var(--teal);transition:gap .3s}
 .blog-card:hover .blog-card-read{gap:.6rem}
+
+/* NEWSLETTER */
+.newsletter{max-width:700px;margin:0 auto 3rem;text-align:center;padding:3rem 2rem;background:linear-gradient(135deg,var(--slate-900),rgba(93,202,165,.04));border:1px solid rgba(93,202,165,.15);border-radius:16px}
+.newsletter h3{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.newsletter p{font-size:.88rem;color:var(--slate-400);margin-bottom:1.5rem;line-height:1.6}
+.newsletter-form{display:flex;gap:.5rem;max-width:420px;margin:0 auto}
+.newsletter-form input{flex:1;padding:.7rem 1rem;border:1.5px solid var(--slate-600);border-radius:8px;background:var(--slate-800);color:var(--white);font-family:var(--font-primary);font-size:.85rem;outline:none;transition:border-color .3s}
+.newsletter-form input:focus{border-color:var(--teal)}
+.newsletter-form button{background:var(--teal);color:var(--slate-950);padding:.7rem 1.2rem;border:none;border-radius:8px;font-family:var(--font-primary);font-size:.82rem;font-weight:700;cursor:pointer;transition:all .3s;white-space:nowrap}
+.newsletter-form button:hover{background:var(--teal-light);transform:translateY(-1px)}
+@media(max-width:480px){.newsletter-form{flex-direction:column}}
 
 .blog-cta{max-width:700px;margin:0 auto 4rem;text-align:center;padding:2.5rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:16px}
 .blog-cta h3{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
@@ -82,10 +113,19 @@ footer a:hover{text-decoration:underline}
 </style>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Blog","name":"TulsiX Technologies Blog","url":"https://tulsix.com/blog/","description":"Insights on SaaS development, CA practice management, school transport safety, and digital transformation.","publisher":{"@type":"Organization","name":"TulsiX Technologies Private Limited","url":"https://tulsix.com"}}
+{"@context":"https://schema.org","@type":"Blog","name":"TulsiX Technologies Blog","url":"https://tulsix.com/blog/","description":"Insights on SaaS development, AI, engineering, CA practice management, and digital transformation.","publisher":{"@type":"Organization","name":"TulsiX Technologies Private Limited","url":"https://tulsix.com"}}
 </script>
 </head>
 <body>
+
+<!-- AMBIENT BACKGROUND -->
+<div class="blog-page-bg">
+  <div class="grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="leaf leaf-1"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+  <div class="leaf leaf-2"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+</div>
 
 <nav>
   <a href="../index.html" class="nav-brand">
@@ -105,66 +145,164 @@ footer a:hover{text-decoration:underline}
 
 <section class="blog-hero">
   <h1>Insights & Ideas</h1>
-  <p>Expert perspectives on SaaS development, practice management, school transport safety, and building digital products that scale.</p>
+  <p>Engineering deep-dives, founder perspectives, AI trends, and practical guides on building digital products that scale.</p>
 </section>
 
-<div class="blog-grid">
+<!-- CATEGORY FILTERS -->
+<div class="blog-filters">
+  <button class="filter-btn active" onclick="filterPosts('all')">All</button>
+  <button class="filter-btn" onclick="filterPosts('founder')">Founder</button>
+  <button class="filter-btn" onclick="filterPosts('engineering')">Engineering</button>
+  <button class="filter-btn" onclick="filterPosts('ai')">AI & Technology</button>
+  <button class="filter-btn" onclick="filterPosts('capilot')">CAPilot</button>
+  <button class="filter-btn" onclick="filterPosts('industry')">Industry</button>
+  <button class="filter-btn" onclick="filterPosts('business')">Business</button>
+</div>
 
-  <a href="how-to-digitize-ca-practice.html" class="blog-card">
+<div class="blog-grid" id="blogGrid">
+
+  <!-- NEWEST FIRST -->
+  <a href="future-of-compliance-automation-ca-firms.html" class="blog-card" data-category="industry">
+    <div class="blog-card-img">📋</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">Industry &middot; <time datetime="2026-04-13">Apr 13, 2026</time> &middot; 7 min read</div>
+      <h2>The Future of Compliance Automation for CA Firms in India</h2>
+      <p>Manual compliance tracking costs CA firms thousands of hours yearly. Here's how automation is changing the game — and what to look for in 2026.</p>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </a>
+
+  <a href="ai-transforming-professional-services-india.html" class="blog-card" data-category="ai">
+    <div class="blog-card-img">🧠</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">AI & Technology &middot; <time datetime="2026-04-12">Apr 12, 2026</time> &middot; 8 min read</div>
+      <h2>How AI is Transforming Professional Services in India — And What's Next</h2>
+      <p>From document processing to predictive analytics — AI is reshaping how CA firms, law firms, and consultancies operate. Here's what's real and what's hype.</p>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </a>
+
+  <a href="our-tech-stack-react-dotnet-azure.html" class="blog-card" data-category="engineering">
+    <div class="blog-card-img">⚡</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">Engineering &middot; <time datetime="2026-04-11">Apr 11, 2026</time> &middot; 9 min read</div>
+      <h2>Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot</h2>
+      <p>A deep technical dive into the architecture, tools, and engineering decisions behind CAPilot — and why each choice matters at scale.</p>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </a>
+
+  <a href="why-i-built-tulsix.html" class="blog-card" data-category="founder">
+    <div class="blog-card-img">🌱</div>
+    <div class="blog-card-body">
+      <div class="blog-card-meta">Founder &middot; <time datetime="2026-04-10">Apr 10, 2026</time> &middot; 6 min read</div>
+      <h2>Why I Built TulsiX — A Founder's Story</h2>
+      <p>The gap I saw in Indian software, why I left the safe path, and what "from vision to digital reality" means to me personally.</p>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
+    </div>
+  </a>
+
+  <a href="how-to-digitize-ca-practice.html" class="blog-card" data-category="capilot">
     <div class="blog-card-img">🏛️</div>
     <div class="blog-card-body">
-      <div class="blog-card-meta">CAPilot &middot; April 9, 2026 &middot; 8 min read</div>
+      <div class="blog-card-meta">CAPilot &middot; <time datetime="2026-04-09">Apr 9, 2026</time> &middot; 8 min read</div>
       <h2>How to Digitize Your CA Practice in 2026 — A Complete Guide</h2>
       <p>Most CA firms still run on spreadsheets, WhatsApp, and paper files. Here's a practical roadmap to go fully digital without disrupting your workflow.</p>
-      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
     </div>
   </a>
 
-  <a href="why-schools-need-gps-bus-tracking.html" class="blog-card">
+  <a href="why-schools-need-gps-bus-tracking.html" class="blog-card" data-category="industry">
     <div class="blog-card-img">🚌</div>
     <div class="blog-card-body">
-      <div class="blog-card-meta">STIS &middot; April 9, 2026 &middot; 7 min read</div>
+      <div class="blog-card-meta">Industry &middot; <time datetime="2026-04-09">Apr 9, 2026</time> &middot; 7 min read</div>
       <h2>Why Indian Schools Need GPS Bus Tracking Systems in 2026</h2>
       <p>Every year, preventable incidents happen on school buses. Real-time GPS tracking, speed alerts, and parent notifications can change that.</p>
-      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
     </div>
   </a>
 
-  <a href="what-makes-production-grade-saas.html" class="blog-card">
+  <a href="what-makes-production-grade-saas.html" class="blog-card" data-category="engineering">
     <div class="blog-card-img">⚙️</div>
     <div class="blog-card-body">
-      <div class="blog-card-meta">Engineering &middot; April 9, 2026 &middot; 6 min read</div>
+      <div class="blog-card-meta">Engineering &middot; <time datetime="2026-04-09">Apr 9, 2026</time> &middot; 6 min read</div>
       <h2>What Makes a SaaS Platform "Production-Grade"?</h2>
       <p>Everyone claims production-ready. But what does it actually mean? Architecture, security, scaling, monitoring — here's what separates real from demo.</p>
-      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
     </div>
   </a>
 
-  <a href="capilot-vs-tally-for-ca-firms.html" class="blog-card">
+  <a href="capilot-vs-tally-for-ca-firms.html" class="blog-card" data-category="capilot">
     <div class="blog-card-img">⚖️</div>
     <div class="blog-card-body">
-      <div class="blog-card-meta">CAPilot &middot; April 9, 2026 &middot; 7 min read</div>
+      <div class="blog-card-meta">CAPilot &middot; <time datetime="2026-04-09">Apr 9, 2026</time> &middot; 7 min read</div>
       <h2>CAPilot vs Tally for CA Firms — Which One Do You Actually Need?</h2>
       <p>Tally handles accounting. CAPilot handles practice management. They solve different problems — here's when to use which, and when to use both.</p>
-      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
     </div>
   </a>
 
-  <a href="how-to-choose-saas-development-partner.html" class="blog-card">
+  <a href="how-to-choose-saas-development-partner.html" class="blog-card" data-category="business">
     <div class="blog-card-img">🤝</div>
     <div class="blog-card-body">
-      <div class="blog-card-meta">Business &middot; April 9, 2026 &middot; 8 min read</div>
+      <div class="blog-card-meta">Business &middot; <time datetime="2026-04-09">Apr 9, 2026</time> &middot; 8 min read</div>
       <h2>How to Choose a SaaS Development Partner in India — 10 Things to Check</h2>
       <p>Not all dev shops are equal. Here's a practical 10-point checklist to evaluate before you sign that contract.</p>
-      <span class="blog-card-read">Read Article <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <div class="blog-card-author">
+        <div class="blog-card-author-avatar">H</div>
+        <span class="blog-card-author-name">Hari Narayan Sharma</span>
+        <span class="blog-card-read" style="margin-left:auto;margin-top:0">Read <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </div>
     </div>
   </a>
 
 </div>
 
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <h3>Stay in the Loop</h3>
+  <p>Get engineering insights, product updates, and founder perspectives delivered to your inbox. No spam — just signal.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="you@company.com" aria-label="Email address">
+    <button onclick="this.textContent='Subscribed!';this.disabled=true;this.style.opacity='.7'">Subscribe</button>
+  </div>
+</div>
+
 <div class="blog-cta">
   <h3>Have a Project in Mind?</h3>
-  <p>We build production-grade SaaS platforms and digital products for businesses ready to scale.</p>
+  <p>We build enterprise-ready SaaS platforms and digital products for businesses ready to scale.</p>
   <a href="../index.html#contact">Start a Conversation <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 
@@ -176,6 +314,13 @@ footer a:hover{text-decoration:underline}
 const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
 hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
 navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')})});
+
+function filterPosts(cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>{b.classList.remove('active');if(b.textContent.toLowerCase().includes(cat)||cat==='all'&&b.textContent==='All')b.classList.add('active')});
+  document.querySelectorAll('.blog-card').forEach(c=>{
+    if(cat==='all'||c.dataset.category===cat){c.style.display=''}else{c.style.display='none'}
+  });
+}
 </script>
 </body>
 </html>

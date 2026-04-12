@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
+<title>Why I Built TulsiX — A Founder's Story | TulsiX Technologies</title>
+<meta name="description" content="The personal story behind TulsiX Technologies — why Hari Narayan Sharma left the services model behind to build product-first software for Indian professionals.">
+<meta name="keywords" content="TulsiX Technologies founder, Hari Narayan Sharma, why I built TulsiX, Indian SaaS startup story, CAPilot origin, product company India">
+<meta property="og:title" content="Why I Built TulsiX — A Founder's Story">
+<meta property="og:description" content="The personal story behind TulsiX Technologies — from seeing Indian professionals struggle with fragmented tools to building a product company that solves real problems.">
+<meta property="og:url" content="https://tulsix.com/blog/why-i-built-tulsix.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://tulsix.com/tulsix-og.png">
+<meta property="og:site_name" content="TulsiX Technologies">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why I Built TulsiX — A Founder's Story">
+<meta name="twitter:description" content="The personal story behind TulsiX Technologies — from seeing Indian professionals struggle with fragmented tools to building a product company that solves real problems.">
+<meta name="twitter:image" content="https://tulsix.com/tulsix-og.png">
+<link rel="canonical" href="https://tulsix.com/blog/why-i-built-tulsix.html">
+<link rel="icon" type="image/svg+xml" href="../tulsix-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --slate-950:#0E1017;--slate-900:#131620;--slate-800:#1A1E2E;--slate-700:#2C3040;--slate-600:#3D4258;--slate-500:#555A70;--slate-400:#7E8399;--slate-300:#A8ABBA;
+  --teal:#5DCAA5;--teal-light:#7EDABC;--teal-dim:rgba(93,202,165,.12);--teal-glow:rgba(93,202,165,.25);
+  --white:#F8F9FA;--off-white:#E8EAED;--pure-white:#fff;
+  --font-primary:'Sora',system-ui,sans-serif;
+  --font-display:'Crimson Pro',Georgia,serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-primary);background:var(--slate-950);color:var(--off-white);-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(14,16,23,.95);backdrop-filter:blur(24px);box-shadow:0 1px 30px rgba(0,0,0,.4)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-leaf{width:32px;height:32px;flex-shrink:0}
+.nav-name{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.nav-name span{color:var(--teal)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--slate-300);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.03em;transition:color .3s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--teal)}
+.nav-cta{background:var(--teal)!important;color:var(--slate-950)!important;padding:.5rem 1.3rem!important;border-radius:6px;font-weight:600!important}
+.nav-cta:hover{background:var(--teal-light)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;z-index:1001}
+.hamburger span{width:22px;height:2px;background:var(--white);transition:all .3s ease;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:960px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:380px;height:100vh;background:var(--slate-900);flex-direction:column;padding:6rem 2.5rem;gap:1.8rem;transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:-20px 0 60px rgba(0,0,0,.6)}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.1rem}
+}
+
+/* Breadcrumbs */
+.breadcrumbs{max-width:780px;margin:0 auto;padding:6rem 5% 0;font-size:.75rem;color:var(--slate-400)}
+.breadcrumbs a{color:var(--slate-400);text-decoration:none;transition:color .3s}
+.breadcrumbs a:hover{color:var(--teal)}
+.breadcrumbs .sep{margin:0 .4rem;color:var(--slate-600)}
+.breadcrumbs .current{color:var(--slate-300)}
+
+/* Article layout */
+.article-header{padding:1.5rem 5% 2.5rem;text-align:center;max-width:780px;margin:0 auto}
+.article-back{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.03em;margin-bottom:2rem;transition:gap .3s}
+.article-back:hover{gap:.6rem}
+.article-meta{font-family:var(--font-mono);font-size:.65rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.article-header h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem}
+.article-header .subtitle{font-size:1.05rem;color:var(--slate-300);line-height:1.7;max-width:620px;margin:0 auto}
+
+.article-body{max-width:780px;margin:0 auto;padding:0 5% 3rem}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--teal);letter-spacing:-.02em;margin:2.5rem 0 1rem;line-height:1.3}
+.article-body h3{font-size:1.1rem;font-weight:700;color:var(--white);margin:2rem 0 .8rem;line-height:1.35}
+.article-body p{font-size:.95rem;color:var(--off-white);line-height:1.85;margin-bottom:1.2rem}
+.article-body ul,.article-body ol{margin:0 0 1.2rem 1.2rem;padding:0}
+.article-body li{font-size:.95rem;color:var(--off-white);line-height:1.85;margin-bottom:.5rem}
+.article-body strong{color:var(--white);font-weight:600}
+.article-body a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(93,202,165,.3);transition:border-color .3s}
+.article-body a:hover{border-color:var(--teal)}
+.article-body blockquote{border-left:3px solid var(--teal);padding:.8rem 1.2rem;margin:1.5rem 0;background:var(--teal-dim);border-radius:0 8px 8px 0}
+.article-body blockquote p{margin:0;color:var(--slate-300);font-style:italic}
+.article-body code{font-family:var(--font-mono);font-size:.82rem;background:var(--slate-800);padding:.15rem .4rem;border-radius:4px;color:var(--teal-light)}
+
+.article-divider{width:60px;height:2px;background:var(--slate-700);margin:2.5rem auto;border:none}
+
+/* Author bio */
+.author-bio{max-width:700px;margin:0 auto 2rem;padding:2rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:14px;display:flex;gap:1.5rem;align-items:flex-start}
+.author-bio .author-avatar{width:56px;height:56px;border-radius:50%;background:var(--teal-dim);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;color:var(--teal);flex-shrink:0}
+.author-bio .author-info h4{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.2rem}
+.author-bio .author-info .author-title{font-size:.78rem;color:var(--teal);font-weight:500;margin-bottom:.5rem}
+.author-bio .author-info p{font-size:.82rem;color:var(--slate-300);line-height:1.6;margin-bottom:.5rem}
+.author-bio .author-links{display:flex;gap:1rem}
+.author-bio .author-links a{font-size:.75rem;color:var(--slate-400);text-decoration:none;font-weight:500;transition:color .3s}
+.author-bio .author-links a:hover{color:var(--teal)}
+@media(max-width:600px){.author-bio{flex-direction:column;align-items:center;text-align:center}.author-bio .author-links{justify-content:center}}
+
+/* Share buttons */
+.share-section{max-width:700px;margin:0 auto 2rem;text-align:center}
+.share-section p{font-size:.78rem;color:var(--slate-400);margin-bottom:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.share-buttons{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:8px;font-size:.78rem;font-weight:600;text-decoration:none;transition:all .3s;border:1px solid var(--slate-600);color:var(--slate-300);background:transparent;cursor:pointer}
+.share-btn:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
+
+/* Related posts */
+.related-posts{max-width:780px;margin:0 auto 3rem;padding:0 5%}
+.related-posts h3{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.2rem;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.related-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:12px;padding:1.2rem;text-decoration:none;transition:all .3s}
+.related-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-2px)}
+.related-card .related-meta{font-family:var(--font-mono);font-size:.6rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.related-card h4{font-size:.88rem;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:.4rem}
+.related-card p{font-size:.75rem;color:var(--slate-400);line-height:1.5}
+
+/* CTA box */
+.article-cta{max-width:700px;margin:0 auto 3rem;padding:2.5rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:16px;text-align:center}
+.article-cta h3{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.article-cta p{font-size:.88rem;color:var(--slate-400);margin-bottom:1.2rem;line-height:1.7}
+.article-cta .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-teal{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal);color:var(--slate-950);padding:.75rem 1.5rem;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .3s}
+.btn-teal:hover{background:var(--teal-light);transform:translateY(-2px);box-shadow:0 8px 30px var(--teal-glow)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--white);padding:.75rem 1.5rem;border:1.5px solid var(--slate-600);border-radius:8px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .3s}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
+
+footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding:2rem 5%;text-align:center}
+footer p{font-size:.75rem;color:var(--slate-400);line-height:1.6}
+footer a{color:var(--teal);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* AMBIENT EFFECTS */
+.page-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.page-bg .glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.06),transparent 70%)}
+.page-bg .glow-1{width:500px;height:500px;top:-10%;right:-5%;animation:pgPulse 8s ease-in-out infinite}
+.page-bg .glow-2{width:400px;height:400px;bottom:10%;left:-8%;animation:pgPulse 8s ease-in-out 3s infinite}
+.page-bg .leaf{position:absolute;opacity:.025;pointer-events:none}
+.page-bg .leaf-1{bottom:15%;right:5%;width:140px;height:135px}
+.page-bg .leaf-2{top:30%;left:3%;width:100px;height:96px;transform:rotate(15deg)}
+.page-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(93,202,165,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(93,202,165,.03) 1px,transparent 1px);background-size:80px 80px}
+@keyframes pgPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
+@media(max-width:960px){.page-bg .leaf{display:none}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why I Built TulsiX — A Founder's Story",
+  "description": "The personal story behind TulsiX Technologies — why Hari Narayan Sharma left the services model behind to build product-first software for Indian professionals.",
+  "author": {
+    "@type": "Person",
+    "name": "Hari Narayan Sharma",
+    "url": "https://www.linkedin.com/in/hari-narayan-sharma-350818104"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TulsiX Technologies",
+    "url": "https://tulsix.com"
+  },
+  "datePublished": "2026-04-10",
+  "dateModified": "2026-04-13",
+  "mainEntityOfPage": "https://tulsix.com/blog/why-i-built-tulsix.html",
+  "keywords": ["TulsiX Technologies", "founder story", "Indian SaaS startup", "CAPilot", "product company India"]
+}
+</script>
+</head>
+<body>
+
+<!-- AMBIENT BACKGROUND -->
+<div class="page-bg">
+  <div class="grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="leaf leaf-1"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+  <div class="leaf leaf-2"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+</div>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-leaf"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#2C2C2C"/><g transform="translate(12,10) scale(0.27)"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" fill="#1D9E75" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" fill="#0F6E56" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" fill="#085041" opacity="0.4"/></g></svg></div>
+    <div class="nav-name">Tulsi<span>X</span></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#products">Products</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#team">Team</a>
+    <a href="./" class="active">Blog</a>
+    <a href="../index.html#contact" class="nav-cta">Get In Touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a><span class="sep">&gt;</span><a href="./">Blog</a><span class="sep">&gt;</span><span class="current">Why I Built TulsiX — A Founder's Story</span>
+</div>
+
+<header class="article-header">
+  <a href="./" class="article-back"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to Blog</a>
+  <div class="article-meta">Founder &middot; <time datetime="2026-04-10">April 10, 2026</time> &middot; 6 min read</div>
+  <h1>Why I Built TulsiX — A Founder's Story</h1>
+  <p class="subtitle">The gap I saw in Indian software, the professionals I watched struggle, and why I decided to build a product company instead of another services shop.</p>
+</header>
+
+<article class="article-body">
+
+<h2>The Moment That Started Everything</h2>
+
+<p>I grew up in Mathura, Uttar Pradesh. My family, like many families in small-town India, relied on local professionals for everything — a Chartered Accountant to file taxes, a lawyer for property disputes, a tutor for school admissions. These professionals were smart, hardworking, and deeply knowledgeable. But almost all of them ran their practices with pen, paper, and phone calls.</p>
+
+<p>I remember watching our family CA — a man who had cleared one of the toughest exams in the country — spend his evenings manually copying client details from one register to another. His office had stacks of files reaching the ceiling. He tracked tax deadlines in a diary. When clients called asking for their filing status, he would put them on hold and flip through pages. This was not a man who lacked intelligence. He lacked the right tools.</p>
+
+<p>That image stayed with me through college, through my engineering career, and through every project I worked on as a full-stack developer. And eventually, it became the reason I built TulsiX.</p>
+
+<h2>The Problem I Kept Seeing</h2>
+
+<p>After finishing my studies, I spent years building software — working across the stack with React, .NET, Azure, and everything in between. I worked on enterprise systems, internal tools, and client projects. And the more I built, the more a pattern became obvious to me.</p>
+
+<p>India has an enormous pool of talented software engineers and a thriving services industry. We build software for companies all over the world. But when it comes to building products for our own professionals — for our own CAs, lawyers, doctors, small businesses — the options are surprisingly thin.</p>
+
+<p>What exists tends to fall into a few categories:</p>
+
+<ul>
+  <li><strong>Legacy desktop software</strong> that looks and feels like it was built in 2005, because it was. No cloud sync, no mobile access, no modern UX.</li>
+  <li><strong>Foreign SaaS tools</strong> adapted for the Indian market as an afterthought. They do not understand GST workflows, Indian compliance calendars, or the way a 10-person CA firm in Jaipur actually operates.</li>
+  <li><strong>Patchwork solutions</strong> — a WhatsApp group for communication, a Google Sheet for client data, Tally for accounting, and a physical diary for deadlines. It works, but barely.</li>
+</ul>
+
+<p>The gap was not technical. Indian engineers are fully capable of building world-class software. The gap was intentional — very few companies in India were choosing to build deep, purpose-built products for Indian professional services. The money was in outsourcing, in building for foreign clients, in chasing enterprise contracts abroad.</p>
+
+<blockquote><p>India exports world-class software but imports mediocre tools for its own professionals. That contradiction is what TulsiX was built to solve.</p></blockquote>
+
+<h2>Why Not Just Another Agency?</h2>
+
+<p>When I decided to start a company, the obvious path was to start a software services agency. It is the proven model in India. You find clients, build custom software, deliver, and move on to the next project. Revenue is predictable, the model is well-understood, and there is no shortage of demand.</p>
+
+<p>I thought about it seriously. And then I thought about all the agencies I had seen — hundreds, maybe thousands of them — all building bespoke software that gets delivered, used for a while, and then slowly decays because there is no one maintaining it with love. The agency builds and moves on. The client is stuck with software that nobody truly owns.</p>
+
+<p>I wanted to build something different. I wanted to build products — software that we own, that we maintain, that we improve every week, that we stand behind. Software where we are not just the builder but the operator. Where the incentive is not to finish a project and invoice, but to make the product so good that users never want to leave.</p>
+
+<p>That is a fundamentally different business. It is harder to start, slower to generate revenue, and requires a level of commitment that agencies do not. But it is also the only way to build software that genuinely transforms how people work.</p>
+
+<h2>CAPilot: The First Product</h2>
+
+<p>The question was: where to start? I went back to that image of the CA in Mathura, flipping through his register. And I started talking to Chartered Accountants.</p>
+
+<p>I spoke to solo practitioners, small firms, mid-sized practices. I asked them what their day looked like. I asked them where they lost time. I asked them what software they used, what they wished existed, and what frustrated them most.</p>
+
+<p>The answers were remarkably consistent:</p>
+
+<ul>
+  <li>Client data was scattered across Excel sheets, WhatsApp chats, and email inboxes.</li>
+  <li>Task management was verbal — "Did you file Kumar ji's GST?" asked across the desk.</li>
+  <li>Compliance deadlines were tracked in diaries, and missed deadlines meant penalties for clients and embarrassment for the firm.</li>
+  <li>Invoicing was manual, inconsistent, and often delayed because generating a proper GST invoice took effort.</li>
+  <li>There was no single place where a partner could see the status of all clients, all tasks, all pending work.</li>
+</ul>
+
+<p>These were not edge cases. This was the norm. And the tools that existed — generic project management software, generic CRMs, generic billing tools — none of them spoke the language of a CA firm. None of them understood what ITR filing season feels like, or why a compliance calendar needs to auto-populate based on client entity type, or why a practice management tool needs to handle both CGST and IGST on a per-invoice basis.</p>
+
+<p>So I decided to build <a href="https://capilot.in" target="_blank" rel="noopener">CAPilot</a> — a complete operating system for Chartered Accountant firms. Not another generic tool with a CA skin on top. A product built from the ground up for how Indian CA practices actually work.</p>
+
+<h2>What "From Vision to Digital Reality" Means to Me</h2>
+
+<p>TulsiX's tagline is "From Vision to Digital Reality." I chose those words carefully because they describe exactly what I believe in.</p>
+
+<p>Every professional I have met — every CA, every school administrator, every small business owner — has a vision for how their work should be. They can describe it. "I wish I could see all my pending tasks on one screen." "I wish parents could track the school bus in real time." "I wish I did not have to generate invoices manually." They know what they need. They just do not have the tools to make it real.</p>
+
+<p>That is what TulsiX does. We take those visions — sometimes articulated clearly, sometimes just frustrations — and we turn them into software that works. Not PowerPoint software. Not demo software. Production-grade, secure, scalable software that you can rely on every single day.</p>
+
+<blockquote><p>Building software is easy. Building software that someone trusts with their livelihood — that is the real challenge. That is what drives everything we do at TulsiX.</p></blockquote>
+
+<h2>The Personal Why</h2>
+
+<p>There is a personal dimension to this that I do not often talk about, but it matters.</p>
+
+<p>I come from a family and a community where professionals — CAs, teachers, doctors — are deeply respected. They serve their communities, often at modest fees, and they work incredibly hard. When I see them struggle with software that should make their lives easier, it feels personal. These are not abstract "users" to me. They are people like the ones I grew up around.</p>
+
+<p>My mother would have benefited from a school that used real-time bus tracking instead of making parents wait anxiously at the gate. My family's CA would have served us better with a system that never let a deadline slip through. My neighbours' small businesses would have grown faster with proper digital tools instead of manual record-keeping.</p>
+
+<p>TulsiX is, in many ways, my attempt to give back to the community that raised me. Not through charity, but through building genuinely useful products that make professionals' lives better.</p>
+
+<h2>A Product Company, Not a Services Shop</h2>
+
+<p>I want to be clear about what TulsiX is and what it is not. We do offer custom software development services — that is part of our business, and we are good at it. But at our core, we are a product company.</p>
+
+<p>The difference matters. A services company optimises for billable hours. A product company optimises for user satisfaction. A services company succeeds when the project is delivered. A product company succeeds when the user keeps coming back.</p>
+
+<p>Every decision at TulsiX — from our tech stack to our hiring to our roadmap — is driven by the question: "Does this make our products better?" We chose React and .NET not because they were trendy but because they let us ship reliable, performant software fast. We chose Azure not because of a sales pitch but because its PaaS offerings let a small team run production infrastructure without a dedicated DevOps army.</p>
+
+<p>This product-first mindset is what I believe India's tech industry needs more of. We have proven we can build for the world. Now we need to build for ourselves.</p>
+
+<h2>The Five-Year Vision</h2>
+
+<p>When I look five years ahead, here is what I see for TulsiX:</p>
+
+<ol>
+  <li><strong>CAPilot becomes the default operating system for CA firms in India.</strong> Not the most popular, not the cheapest — the best. The one that firms recommend to each other because it genuinely transformed how they work.</li>
+  <li><strong>We launch 2-3 more vertical products</strong> for other underserved professional segments — school transport safety (already underway with STIS), healthcare practice management, and legal firm operations.</li>
+  <li><strong>AI becomes deeply integrated</strong> into our products — not as a gimmick, but as genuine intelligence that helps professionals make better decisions, catch errors before they happen, and automate the truly repetitive parts of their work.</li>
+  <li><strong>TulsiX is recognised as proof</strong> that you can build a successful product company in India, serving Indian professionals, without needing to chase foreign markets first. The domestic market is enormous and underserved.</li>
+  <li><strong>We build a team of 50+ engineers and product people</strong> who are proud to work on products that matter — people who chose TulsiX over a FAANG offer because they wanted to build something with purpose.</li>
+</ol>
+
+<p>This is ambitious. I know that. But I have also seen what happens when a focused team builds with genuine empathy for its users. The product gets better, users tell their peers, and growth becomes organic. That is the flywheel I am building.</p>
+
+<h2>An Invitation</h2>
+
+<p>If you are a Chartered Accountant looking for a better way to run your firm, try <a href="https://capilot.in" target="_blank" rel="noopener">CAPilot</a>. If you are a business looking for a technology partner who builds with ownership, not just deliverables, <a href="../index.html#contact">talk to us</a>. And if you are an engineer who wants to build products that Indian professionals actually use — I would love to hear from you.</p>
+
+<p>TulsiX is just getting started. The foundation is laid, the first product is live, and the roadmap is clear. Now it is about execution, iteration, and relentlessly serving the people who trust us with their work.</p>
+
+<p>That is why I built TulsiX. Not because the market was big or the timing was right — but because the problem was real, and nobody was solving it properly.</p>
+
+</article>
+
+<hr class="article-divider">
+
+<div class="author-bio">
+  <div class="author-avatar">HN</div>
+  <div class="author-info">
+    <h4>Hari Narayan Sharma</h4>
+    <div class="author-title">Founder & CEO at TulsiX Technologies</div>
+    <p>Building production-grade SaaS products for Indian professionals who deserve better tools than spreadsheets and WhatsApp.</p>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/hari-narayan-sharma-350818104" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/harinarayansharma140" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<div class="share-section">
+  <p>Share this article</p>
+  <div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?url=https://tulsix.com/blog/why-i-built-tulsix.html&text=Why%20I%20Built%20TulsiX%20%E2%80%94%20A%20Founder%27s%20Story" target="_blank" rel="noopener" class="share-btn">X / Twitter</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tulsix.com/blog/why-i-built-tulsix.html" target="_blank" rel="noopener" class="share-btn">LinkedIn</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://tulsix.com/blog/why-i-built-tulsix.html');this.textContent='Copied!'">Copy Link</button>
+  </div>
+</div>
+
+<div class="related-posts">
+  <h3>Related Articles</h3>
+  <div class="related-grid">
+    <a href="our-tech-stack-react-dotnet-azure.html" class="related-card">
+      <div class="related-meta">Engineering &middot; 9 min read</div>
+      <h4>Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot</h4>
+      <p>A deep technical dive into the architecture decisions behind our products.</p>
+    </a>
+    <a href="how-to-digitize-ca-practice.html" class="related-card">
+      <div class="related-meta">CAPilot &middot; 8 min read</div>
+      <h4>How to Digitize Your CA Practice in 2026 — A Complete Guide</h4>
+      <p>A practical roadmap to go fully digital without disrupting your workflow.</p>
+    </a>
+    <a href="what-makes-production-grade-saas.html" class="related-card">
+      <div class="related-meta">Engineering &middot; 6 min read</div>
+      <h4>What Makes a SaaS Platform "Production-Grade"?</h4>
+      <p>Architecture, security, scaling, monitoring — what separates real from demo.</p>
+    </a>
+  </div>
+</div>
+
+<div class="article-cta">
+  <h3>Want to See What We Are Building?</h3>
+  <p>CAPilot is the first TulsiX product — a complete operating system for CA firms. Built from scratch for how Indian practices actually work.</p>
+  <div class="cta-buttons">
+    <a href="https://capilot.in" target="_blank" rel="noopener" class="btn-teal">Explore CAPilot <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="../index.html#contact" class="btn-ghost">Contact Us <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 TulsiX Technologies Private Limited. All rights reserved. | <a href="../privacy.html">Privacy</a> | <a href="../terms.html">Terms</a> | <a href="../index.html">Home</a></p>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')})});
+</script>
+</body>
+</html>

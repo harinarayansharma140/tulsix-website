@@ -11,14 +11,14 @@
 <meta name="description" content="TulsiX Technologies builds production-grade SaaS platforms and digital products. Creators of CAPilot — the Complete Operating System for CA Firms.">
 <meta name="keywords" content="TulsiX Technologies, CAPilot, SaaS development, CA practice management, software company India, Hari Narayan Sharma">
 <meta property="og:title" content="TulsiX Technologies — From Vision to Digital Reality">
-<meta property="og:description" content="We build production-grade digital products that help businesses operate smarter, scale faster, and grow with confidence.">
+<meta property="og:description" content="Enterprise-ready SaaS platforms and digital products that help businesses operate smarter, scale faster, and grow with confidence.">
 <meta property="og:url" content="https://tulsix.com">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://tulsix.com/tulsix-og.png">
 <meta property="og:site_name" content="TulsiX Technologies">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TulsiX Technologies — From Vision to Digital Reality">
-<meta name="twitter:description" content="We build production-grade digital products that help businesses operate smarter, scale faster, and grow with confidence.">
+<meta name="twitter:description" content="Enterprise-ready SaaS platforms and digital products that help businesses operate smarter, scale faster, and grow with confidence.">
 <meta name="twitter:image" content="https://tulsix.com/tulsix-og.png">
 <link rel="canonical" href="https://tulsix.com">
 <link rel="icon" type="image/svg+xml" href="tulsix-favicon.svg">
@@ -38,6 +38,39 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-primary);background:var(--slate-950);color:var(--off-white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--slate-950)}
+::-webkit-scrollbar-thumb{background:var(--slate-600);border-radius:4px;border:2px solid var(--slate-950)}
+::-webkit-scrollbar-thumb:hover{background:var(--teal)}
+*{scrollbar-width:thin;scrollbar-color:var(--slate-600) var(--slate-950)}
+
+/* BUTTON RIPPLE */
+.btn-teal,.btn-ghost,.btn-dark,.pricing-cta,.form-submit{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.25);transform:scale(0);animation:rippleAnim .6s ease-out forwards;pointer-events:none}
+.btn-ghost .ripple{background:rgba(93,202,165,.2)}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* HERO GRADIENT TEXT */
+.hero h1 .teal{background:linear-gradient(135deg,var(--teal),var(--teal-light),#a8edce);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1 em{background:linear-gradient(135deg,var(--teal-light),#c8f0dd,var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:var(--font-display);font-style:italic;font-weight:700}
+
+/* HERO BADGE TYPING */
+.hero-badge-text{overflow:hidden;white-space:nowrap;border-right:2px solid var(--teal);animation:typing 2.5s steps(28,end) .8s both,blinkCaret .7s step-end infinite}
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blinkCaret{50%{border-color:transparent}}
+
+/* CURSOR SPOTLIGHT (hero only) */
+.hero-spotlight{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.07),transparent 60%);pointer-events:none;z-index:1;transition:transform .1s ease-out,opacity .3s;opacity:0;transform:translate(-50%,-50%)}
+.hero:hover .hero-spotlight{opacity:1}
+@media(max-width:960px){.hero-spotlight{display:none}}
+
+/* PARALLAX HELPER */
+.parallax-slow{transition:transform .1s ease-out;will-change:transform}
+
+/* GLASSMORPHISM PRICING */
+.pricing-card.popular{background:rgba(26,30,46,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(93,202,165,.3)}
 
 /* PRELOADER */
 .preloader{position:fixed;inset:0;z-index:9999;background:var(--slate-950);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;transition:opacity .7s ease,visibility .7s ease}
@@ -81,8 +114,28 @@ nav.scrolled{background:rgba(14,16,23,.95);backdrop-filter:blur(24px);padding:.7
 /* HERO */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
 .hero-noise{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");opacity:.5}
-.hero-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(93,202,165,.06),transparent),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(93,202,165,.04),transparent)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(93,202,165,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(93,202,165,.03) 1px,transparent 1px);background-size:80px 80px}
+.hero-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(93,202,165,.12),transparent),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(93,202,165,.08),transparent),radial-gradient(ellipse 30% 30% at 50% 20%,rgba(93,202,165,.06),transparent)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(93,202,165,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(93,202,165,.06) 1px,transparent 1px);background-size:80px 80px}
+
+/* HERO FLOATING ELEMENTS */
+.hero-floats{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-float{position:absolute;opacity:0;animation:heroFloat linear infinite}
+.hero-float--leaf{color:rgba(93,202,165,.18)}
+.hero-float--code{font-family:var(--font-mono);font-size:.7rem;color:rgba(93,202,165,.14);white-space:nowrap;letter-spacing:.02em}
+.hero-float--dot{width:4px;height:4px;border-radius:50%;background:rgba(93,202,165,.25);box-shadow:0 0 6px rgba(93,202,165,.15)}
+.hero-float--ring{border:1.5px solid rgba(93,202,165,.12);border-radius:50%}
+.hero-float--bracket{font-family:var(--font-mono);font-size:1.8rem;font-weight:300;color:rgba(93,202,165,.1)}
+@keyframes heroFloat{0%{opacity:0;transform:translateY(20px)}8%{opacity:1}92%{opacity:1}100%{opacity:0;transform:translateY(-100vh)}}
+@keyframes heroPulse{0%,100%{opacity:.06;transform:scale(1)}50%{opacity:.15;transform:scale(1.08)}}
+@keyframes heroOrbit{0%{transform:rotate(0deg) translateX(120px) rotate(0deg)}100%{transform:rotate(360deg) translateX(120px) rotate(-360deg)}}
+.hero-glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.1),transparent 70%);animation:heroPulse 6s ease-in-out infinite;pointer-events:none}
+.hero-glow--1{width:500px;height:500px;top:5%;left:2%;animation-delay:0s}
+.hero-glow--2{width:400px;height:400px;bottom:10%;right:40%;animation-delay:2s}
+.hero-glow--3{width:350px;height:350px;top:55%;left:30%;animation-delay:4s}
+.hero-orbit{position:absolute;top:30%;left:15%;width:240px;height:240px;pointer-events:none}
+.hero-orbit-dot{width:5px;height:5px;border-radius:50%;background:rgba(93,202,165,.3);box-shadow:0 0 8px rgba(93,202,165,.2);animation:heroOrbit 20s linear infinite;position:absolute;top:50%;left:50%}
+.hero-orbit-ring{position:absolute;inset:0;border:1.5px solid rgba(93,202,165,.07);border-radius:50%}
+@media(max-width:960px){.hero-floats,.hero-glow,.hero-orbit{display:none}}
 .hero-content{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:9rem 5% 5rem;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .hero-left{position:relative}
 .hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:var(--teal-dim);border:1px solid rgba(93,202,165,.2);padding:.4rem 1rem;border-radius:100px;font-family:var(--font-mono);font-size:.68rem;font-weight:500;color:var(--teal);letter-spacing:.08em;margin-bottom:2rem;animation:fadeUp .8s ease forwards;opacity:0}
@@ -127,6 +180,94 @@ nav.scrolled{background:rgba(14,16,23,.95);backdrop-filter:blur(24px);padding:.7
 .ticker-item{font-family:var(--font-primary);font-size:.75rem;font-weight:700;color:var(--slate-950);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;display:flex;align-items:center;gap:.8rem}
 .ticker-item .dot{width:4px;height:4px;background:var(--slate-950);border-radius:50%;flex-shrink:0}
 @keyframes scroll-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SOCIAL PROOF */
+.trust-section{padding:4rem 5% 3rem;text-align:center}
+.trust-label{font-family:var(--font-mono);font-size:.68rem;color:var(--slate-400);text-transform:uppercase;letter-spacing:.15em;margin-bottom:2rem}
+.trust-metrics{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.trust-metric{text-align:center}
+.trust-metric .num{font-family:var(--font-primary);font-size:2.2rem;font-weight:800;color:var(--teal);letter-spacing:-.02em}
+.trust-metric .lbl{font-size:.75rem;color:var(--slate-400);margin-top:.2rem}
+.trust-stack{display:flex;justify-content:center;align-items:center;gap:2.5rem;flex-wrap:wrap;opacity:.5;transition:opacity .3s}
+.trust-stack:hover{opacity:.8}
+.trust-stack-item{display:flex;align-items:center;gap:.5rem;color:var(--slate-400);font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.03em}
+.trust-stack-item svg{width:20px;height:20px;fill:var(--slate-400)}
+
+/* HOW WE WORK */
+.process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:3rem;position:relative}
+.process-grid::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:.2}
+.process-step{text-align:center;position:relative;z-index:2}
+.process-num{width:48px;height:48px;margin:0 auto 1rem;background:var(--teal-dim);border:2px solid rgba(93,202,165,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.85rem;font-weight:700;color:var(--teal);transition:all .3s}
+.process-step:hover .process-num{background:var(--teal);color:var(--slate-950);border-color:var(--teal)}
+.process-step h4{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+.process-step p{font-size:.75rem;color:var(--slate-400);line-height:1.5;max-width:180px;margin:0 auto}
+@media(max-width:768px){.process-grid{grid-template-columns:repeat(3,1fr);gap:1.5rem}.process-grid::before{display:none}}
+@media(max-width:480px){.process-grid{grid-template-columns:1fr 1fr}}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.pricing-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:16px;padding:2rem 1.5rem;position:relative;transition:all .4s ease;display:flex;flex-direction:column}
+.pricing-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-4px);box-shadow:0 16px 50px rgba(0,0,0,.3)}
+.pricing-card.popular{border-color:var(--teal);box-shadow:0 0 30px rgba(93,202,165,.1)}
+.pricing-card.enterprise{border-color:#ffbd2e;background:linear-gradient(135deg,var(--slate-800),rgba(255,189,46,.04))}
+.pricing-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:.3rem .8rem;border-radius:100px;white-space:nowrap}
+.pricing-badge.pop{background:var(--teal);color:var(--slate-950)}
+.pricing-badge.best{background:#ffbd2e;color:var(--slate-950)}
+.pricing-card h4{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.2rem}
+.pricing-card .pricing-desc{font-size:.75rem;color:var(--slate-400);margin-bottom:1rem;line-height:1.5}
+.pricing-price{margin-bottom:1rem}
+.pricing-price .amount{font-family:var(--font-primary);font-size:2rem;font-weight:800;color:var(--white)}
+.pricing-price .amount span{font-size:.9rem;font-weight:400;color:var(--slate-400)}
+.pricing-price .annual{font-size:.7rem;color:var(--teal);margin-top:.2rem}
+.pricing-users{font-family:var(--font-mono);font-size:.68rem;color:var(--teal);background:var(--teal-dim);padding:.3rem .7rem;border-radius:100px;display:inline-block;margin-bottom:1rem}
+.pricing-features{list-style:none;margin:0 0 1.5rem;padding:0;flex:1}
+.pricing-features li{font-size:.78rem;color:var(--slate-300);padding:.35rem 0;padding-left:1.2rem;position:relative;line-height:1.5}
+.pricing-features li::before{content:'✓';position:absolute;left:0;color:var(--teal);font-size:.7rem;font-weight:700}
+.pricing-cta{display:block;text-align:center;padding:.7rem;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;transition:all .3s}
+.pricing-cta.primary{background:var(--teal);color:var(--slate-950)}
+.pricing-cta.primary:hover{background:var(--teal-light);transform:translateY(-1px)}
+.pricing-cta.secondary{background:transparent;color:var(--teal);border:1.5px solid var(--slate-600)}
+.pricing-cta.secondary:hover{border-color:var(--teal);background:var(--teal-dim)}
+.pricing-cta.enterprise-btn{background:#ffbd2e;color:var(--slate-950)}
+.pricing-cta.enterprise-btn:hover{background:#ffd666;transform:translateY(-1px)}
+.pricing-note{text-align:center;margin-top:1.5rem;font-size:.72rem;color:var(--slate-400)}
+@media(max-width:960px){.pricing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.pricing-grid{grid-template-columns:1fr}}
+
+/* SECTION DECORATIONS */
+.section-decor{position:absolute;pointer-events:none;z-index:0}
+.section{position:relative}
+.decor-gradient{width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.06),transparent 70%);position:absolute}
+.decor-dots{position:absolute;opacity:.15}
+.decor-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(93,202,165,.1),transparent);width:60%}
+
+/* Leaf watermark on all sections */
+.section::after{content:'';position:absolute;bottom:8%;left:4%;width:120px;height:115px;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 148 140' xmlns='http://www.w3.org/2000/svg' fill='%235DCAA5'%3E%3Cpath d='M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z'/%3E%3Cpath d='M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z'/%3E%3Cpath d='M74 50 Q62 75 74 100 Q86 75 74 50Z' opacity='.5'/%3E%3C/svg%3E") no-repeat center/contain;opacity:.025;pointer-events:none;z-index:0}
+
+/* Alternate position for even sections */
+.section:nth-of-type(even)::after{left:auto;right:4%;bottom:auto;top:8%}
+
+/* Corner accent for bg-900 sections */
+.bg-900::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle at top right,rgba(93,202,165,.04),transparent 70%);pointer-events:none;z-index:0}
+
+/* Corner accent for bg-800 sections */
+.bg-800::before{content:'';position:absolute;bottom:0;left:0;width:300px;height:300px;background:radial-gradient(circle at bottom left,rgba(93,202,165,.04),transparent 70%);pointer-events:none;z-index:0}
+
+/* Animated counting for trust metrics */
+.trust-metric .num{display:inline-block;transition:transform .3s}
+.trust-section:hover .trust-metric .num{transform:scale(1.05)}
+
+/* Hover glow for process steps */
+.process-step::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.08),transparent);opacity:0;transition:opacity .4s}
+.process-step:hover::before{opacity:1}
+
+/* Pricing card shine effect */
+.pricing-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(93,202,165,.03),transparent 60%);opacity:0;transition:opacity .5s;pointer-events:none}
+.pricing-card:hover::before{opacity:1}
+
+/* Service card animated border glow */
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);transform:scaleX(0);transition:transform .5s;opacity:.4}
+.service-card:hover::after{transform:scaleX(.6)}
 
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
@@ -278,6 +419,17 @@ nav.scrolled{background:rgba(14,16,23,.95);backdrop-filter:blur(24px);padding:.7
 .btn-dark{display:inline-flex;align-items:center;gap:.5rem;background:var(--slate-950);color:var(--teal);padding:1rem 2.2rem;border:none;border-radius:8px;font-family:var(--font-primary);font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s ease}
 .btn-dark:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(0,0,0,.3)}
 
+/* BLOG PREVIEW */
+.blog-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.blog-preview-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:14px;padding:1.5rem;text-decoration:none;transition:all .4s ease;display:flex;flex-direction:column}
+.blog-preview-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.blog-preview-meta{font-family:var(--font-mono);font-size:.6rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.blog-preview-card h4{font-size:.95rem;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:.5rem}
+.blog-preview-card p{font-size:.78rem;color:var(--slate-400);line-height:1.6;flex:1}
+.blog-preview-read{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font-size:.75rem;font-weight:600;color:var(--teal);transition:gap .3s}
+.blog-preview-card:hover .blog-preview-read{gap:.6rem}
+@media(max-width:768px){.blog-preview-grid{grid-template-columns:1fr}}
+
 /* FAQ */
 .faq-list{max-width:800px;margin:3rem auto 0;display:flex;flex-direction:column;gap:.8rem}
 .faq-item{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:12px;overflow:hidden;transition:border-color .3s}
@@ -360,7 +512,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
 </style>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"TulsiX Technologies Private Limited","url":"https://tulsix.com","logo":"https://tulsix.com/tulsix-og.png","image":"https://tulsix.com/tulsix-og.png","email":"contact@tulsix.com","telephone":"+917982402673","address":{"@type":"PostalAddress","streetAddress":"Mathura","addressLocality":"Mathura","addressRegion":"Uttar Pradesh","postalCode":"281502","addressCountry":"IN"},"founder":{"@type":"Person","name":"Hari Narayan Sharma"},"foundingDate":"2026-03-28","description":"We build production-grade SaaS platforms and digital products that help businesses operate smarter, scale faster, and grow with confidence.","sameAs":["https://github.com/harinarayansharma140","https://www.linkedin.com/in/hari-narayan-sharma-350818104"]}
+{"@context":"https://schema.org","@type":"Organization","name":"TulsiX Technologies Private Limited","url":"https://tulsix.com","logo":"https://tulsix.com/tulsix-og.png","image":"https://tulsix.com/tulsix-og.png","email":"contact@tulsix.com","telephone":"+917982402673","address":[{"@type":"PostalAddress","streetAddress":"Mathura","addressLocality":"Mathura","addressRegion":"Uttar Pradesh","postalCode":"281502","addressCountry":"IN"},{"@type":"PostalAddress","streetAddress":"D-401, JM Florence Market, Greater Noida West, Tech Zone IV","addressLocality":"Greater Noida","addressRegion":"Uttar Pradesh","postalCode":"201318","addressCountry":"IN"}],"founder":{"@type":"Person","name":"Hari Narayan Sharma"},"foundingDate":"2026-03-28","description":"We build enterprise-ready SaaS platforms and digital products that help businesses operate smarter, scale faster, and grow with confidence.","sameAs":["https://github.com/tulsix","https://www.linkedin.com/company/tulsix","https://www.instagram.com/tulsix.tech"]}
 </script>
 
 <script type="application/ld+json">
@@ -409,9 +561,27 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   <div class="hero-noise"></div>
   <div class="hero-gradient"></div>
   <div class="hero-grid"></div>
+
+  <!-- CURSOR SPOTLIGHT -->
+  <div class="hero-spotlight" id="heroSpotlight"></div>
+
+  <!-- AMBIENT GLOW ORBS -->
+  <div class="hero-glow hero-glow--1"></div>
+  <div class="hero-glow hero-glow--2"></div>
+  <div class="hero-glow hero-glow--3"></div>
+
+  <!-- ORBITAL ELEMENT -->
+  <div class="hero-orbit">
+    <div class="hero-orbit-ring"></div>
+    <div class="hero-orbit-dot"></div>
+  </div>
+
+  <!-- FLOATING CODE & LEAF ELEMENTS -->
+  <div class="hero-floats" id="heroFloats"></div>
+
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-badge"><span class="pulse"></span> Software Company · Est. 2026</div>
+      <div class="hero-badge"><span class="pulse"></span><span class="hero-badge-text"> Software Company · Est. 2026</span></div>
       <h1>From <em>Vision</em><br>to <span class="teal">Digital</span><br>Reality</h1>
       <p class="hero-sub">We build production-grade SaaS platforms and digital products that help businesses operate smarter, scale faster, and grow with confidence.</p>
       <div class="hero-actions">
@@ -440,9 +610,32 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   </div>
 </div>
 
+<!-- SOCIAL PROOF -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-label">Trusted by early adopters across India</div>
+    <div class="trust-metrics">
+      <div class="trust-metric"><div class="num">10+</div><div class="lbl">CA Firms Onboarded</div></div>
+      <div class="trust-metric"><div class="num">500+</div><div class="lbl">Clients Managed</div></div>
+      <div class="trust-metric"><div class="num">2,000+</div><div class="lbl">Invoices Generated</div></div>
+      <div class="trust-metric"><div class="num">99.9%</div><div class="lbl">Uptime SLA</div></div>
+    </div>
+    <div class="trust-label" style="margin-bottom:1.2rem;font-size:.62rem">Built with modern, enterprise-grade technology</div>
+    <div class="trust-stack">
+      <span class="trust-stack-item"><svg viewBox="0 0 24 24"><path d="M22.379 23.343a.5.5 0 01-.472-.334l-3.389-9.639a.513.513 0 01.189-.56l8.205-5.932a.527.527 0 01.589 0 .513.513 0 01.189.56L24.3 17.077l-1.449-4.122a.251.251 0 00-.237-.167.247.247 0 00-.234.17L21.907 23a.5.5 0 01-.472.339z" transform="scale(0.85)"/><path d="M12 2L14.5 9H22L16 13.5L18 21L12 16.5L6 21L8 13.5L2 9H9.5L12 2Z" fill="var(--slate-400)"/></svg>React</span>
+      <span class="trust-stack-item"><svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="none" stroke="var(--slate-400)" stroke-width="1.5"/><path d="M12 22V12M2 7l10 5 10-5" fill="none" stroke="var(--slate-400)" stroke-width="1.5"/></svg>.NET 8</span>
+      <span class="trust-stack-item"><svg viewBox="0 0 24 24"><path d="M5.5 4.5h13L22 12l-3.5 7.5h-13L2 12l3.5-7.5z" fill="none" stroke="var(--slate-400)" stroke-width="1.5"/></svg>Azure</span>
+      <span class="trust-stack-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="var(--slate-400)"/></svg>SQL Server</span>
+      <span class="trust-stack-item"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="var(--slate-400)"/></svg>GitHub Actions</span>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="section bg-900" id="about">
-  <div class="container">
+  <div class="decor-gradient" style="top:-100px;left:-100px;opacity:.5"></div>
+  <div class="decor-line" style="top:50%;left:20%"></div>
+  <div class="container" style="position:relative;z-index:1">
     <div class="section-label reveal">// Who We Are</div>
     <div class="section-title reveal">Rooted in Quality.<br>Driven by Innovation.</div>
     <div class="about-grid">
@@ -463,9 +656,9 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
       </div>
       <div class="about-text reveal">
         <h3>We Don't Just Write Code.<br>We Build Products That <span style="color:var(--teal)">Matter</span>.</h3>
-        <p><strong>TulsiX Technologies Pvt. Ltd.</strong> is a software company founded in March 2026, headquartered in Mathura, Uttar Pradesh. We specialize in building production-grade SaaS platforms, custom software, and digital products for businesses ready to scale.</p>
+        <p><strong>TulsiX Technologies Pvt. Ltd.</strong> is a software product company founded in March 2026. We build enterprise-ready SaaS platforms, custom software, and digital products for businesses that refuse to settle for half-baked solutions.</p>
         <p>Our flagship product, <strong style="color:var(--teal)">CAPilot</strong>, is a complete practice management platform for Chartered Accountant firms — born from deep understanding of the industry and built with obsessive attention to quality.</p>
-        <p>Whether you need a full SaaS platform, a web application, or technical consultancy — we bring the same level of craft and care to every engagement.</p>
+        <p>Whether you need a full SaaS platform, a web application, or technical consultancy — we bring the same standard of craft, security, and scalability to every engagement.</p>
         <blockquote>"Technology should grow with your business, not hold it back."</blockquote>
       </div>
     </div>
@@ -474,7 +667,8 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
 
 <!-- CAPILOT PRODUCT -->
 <section class="section" id="capilot">
-  <div class="container product-hero">
+  <div class="decor-gradient" style="top:-50px;left:50%;transform:translateX(-50%);width:500px;height:500px;opacity:.4"></div>
+  <div class="container product-hero" style="position:relative;z-index:1">
     <div class="reveal">
       <div class="product-logo">
         <div class="product-logo-icon">CA</div>
@@ -514,6 +708,94 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
       <div class="product-feat reveal"><div class="product-feat-icon">👨‍💼</div><h4>Team & HR</h4><p>Multi-user access with role permissions, team management, and workload visibility</p></div>
     </div>
 
+    <!-- PRICING -->
+    <div style="margin-top:5rem">
+      <div class="section-label reveal" style="text-align:center">// Pricing</div>
+      <div class="section-title reveal" style="text-align:center;max-width:600px;margin:0 auto">Simple, Transparent Pricing</div>
+      <p class="section-sub reveal" style="text-align:center;margin:0 auto">All prices exclusive of 18% GST as per Government of India norms.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card reveal">
+          <h4>Solo</h4>
+          <p class="pricing-desc">For solo practitioners — starting at 1 user</p>
+          <div class="pricing-price">
+            <div class="amount">₹499<span>/mo</span></div>
+            <div class="annual">₹4,999/yr billed annually</div>
+          </div>
+          <div class="pricing-users">1 user · 1 branch</div>
+          <ul class="pricing-features">
+            <li>Client Management (75 clients)</li>
+            <li>Task Management</li>
+            <li>Basic Reports</li>
+            <li>GST Invoicing</li>
+            <li>Tally-Formatted Register</li>
+          </ul>
+          <a href="https://capilot.tulsix.com" target="_blank" rel="noopener" class="pricing-cta secondary">Subscribe Now</a>
+        </div>
+
+        <div class="pricing-card popular reveal">
+          <span class="pricing-badge pop">Most Popular</span>
+          <h4>Growth</h4>
+          <p class="pricing-desc">Full compliance suite for growing firms</p>
+          <div class="pricing-price">
+            <div class="amount">₹999<span>/mo</span></div>
+            <div class="annual">₹9,999/yr billed annually</div>
+          </div>
+          <div class="pricing-users">3 users</div>
+          <ul class="pricing-features">
+            <li>Everything in Solo</li>
+            <li>Document Management</li>
+            <li>Team Management & Leave</li>
+            <li>Client Portal</li>
+            <li>CRM / Lead Pipeline</li>
+            <li>Email Campaigns</li>
+          </ul>
+          <a href="https://capilot.tulsix.com" target="_blank" rel="noopener" class="pricing-cta primary">Subscribe Now</a>
+        </div>
+
+        <div class="pricing-card reveal">
+          <h4>Professional</h4>
+          <p class="pricing-desc">Advanced features for established practices</p>
+          <div class="pricing-price">
+            <div class="amount">₹1,999<span>/mo</span></div>
+            <div class="annual">₹19,999/yr billed annually</div>
+          </div>
+          <div class="pricing-users">10 users</div>
+          <ul class="pricing-features">
+            <li>Everything in Growth</li>
+            <li>ITR Filing (3+)</li>
+            <li>Audit Reports (CARO, 3CA/3CB)</li>
+            <li>Government Portal Integration</li>
+            <li>WhatsApp Integration</li>
+            <li>Advanced Reports</li>
+          </ul>
+          <a href="https://capilot.tulsix.com" target="_blank" rel="noopener" class="pricing-cta secondary">Subscribe Now</a>
+        </div>
+
+        <div class="pricing-card enterprise reveal">
+          <span class="pricing-badge best">Best Value</span>
+          <h4>Enterprise</h4>
+          <p class="pricing-desc">For large firms and multi-branch practices</p>
+          <div class="pricing-price">
+            <div class="amount">₹4,999<span>/mo</span></div>
+            <div class="annual">₹49,999/yr billed annually</div>
+          </div>
+          <div class="pricing-users">Unlimited users</div>
+          <ul class="pricing-features">
+            <li>Everything in Professional</li>
+            <li>Unlimited Clients & Users</li>
+            <li>Multi-Branch Support</li>
+            <li>API Access & Integrations</li>
+            <li>White-Label Client Portal</li>
+            <li>Priority Support & SLA</li>
+            <li>Dedicated Account Manager</li>
+          </ul>
+          <a href="https://capilot.tulsix.com" target="_blank" rel="noopener" class="pricing-cta enterprise-btn">Go Enterprise</a>
+        </div>
+      </div>
+      <p class="pricing-note reveal">All plans include SSL encryption, daily backups, and email support. Need a custom plan? <a href="#contact" style="color:var(--teal);text-decoration:underline">Contact us</a>.</p>
+    </div>
+
     <div class="product-cta reveal">
       <a href="https://capilot.tulsix.com" target="_blank" rel="noopener" class="btn-teal" style="margin-top:1rem">Visit CAPilot <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
@@ -525,7 +807,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   <div class="container">
     <div class="section-label reveal">// Our Products</div>
     <div class="section-title reveal">What We're Building</div>
-    <p class="section-sub reveal">Production-grade platforms designed to solve real industry problems — from CA firms to school transport safety.</p>
+    <p class="section-sub reveal">Purpose-built platforms designed to solve real industry problems — from CA firms to school transport safety.</p>
     <div class="products-grid">
 
       <div class="product-card reveal">
@@ -576,50 +858,90 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   <div class="container">
     <div class="section-label reveal">// What We Build</div>
     <div class="section-title reveal">Services & Capabilities</div>
-    <p class="section-sub reveal">From concept to deployment — we handle the full product lifecycle with production-grade engineering.</p>
+    <p class="section-sub reveal">From concept to deployment — we handle the full product lifecycle with battle-tested engineering practices.</p>
     <div class="services-grid">
       <div class="service-card reveal"><div class="service-icon">🚀</div><h3>SaaS Product Development</h3><p>End-to-end SaaS platform development — architecture, backend, frontend, deployment, and scaling. Built to handle real-world load from day one.</p><span class="service-tag">Full-Stack SaaS</span></div>
       <div class="service-card reveal"><div class="service-icon">🌐</div><h3>Custom Web Applications</h3><p>Bespoke web applications tailored to your business workflows — dashboards, portals, internal tools, and customer-facing platforms.</p><span class="service-tag">React · .NET · Azure</span></div>
       <div class="service-card reveal"><div class="service-icon">📱</div><h3>UI/UX Design & Frontend</h3><p>Beautiful, responsive interfaces built with modern frontend frameworks. Design systems, component libraries, and pixel-perfect implementation.</p><span class="service-tag">Design Systems</span></div>
       <div class="service-card reveal"><div class="service-icon">☁️</div><h3>Cloud & DevOps</h3><p>Azure cloud infrastructure, CI/CD pipelines, static web apps deployment, SSL, custom domains, and production environment management.</p><span class="service-tag">Azure · GitHub Actions</span></div>
       <div class="service-card reveal"><div class="service-icon">🔌</div><h3>API & Integration Development</h3><p>RESTful APIs, third-party integrations, payment gateways, messaging services, and data pipelines connecting your systems together.</p><span class="service-tag">REST · Webhooks</span></div>
-      <div class="service-card reveal"><div class="service-icon">📡</div><h3>IoT Software & Applications</h3><p>Custom software for IoT ecosystems — device dashboards, real-time monitoring, sensor data pipelines, and cloud-connected embedded system interfaces.</p><span class="service-tag">IoT · MQTT · Edge</span></div>
       <div class="service-card reveal"><div class="service-icon">🤖</div><h3>AI & Machine Learning</h3><p>Intelligent solutions powered by AI — chatbots, predictive analytics, document processing, recommendation engines, and custom ML model integration.</p><span class="service-tag">AI · ML · NLP</span></div>
-      <div class="service-card reveal"><div class="service-icon">🔬</div><h3>R&D & Prototyping</h3><p>Feasibility studies, proof-of-concept builds, MVP development, and emerging technology evaluation — turning ideas into validated, fundable prototypes.</p><span class="service-tag">POC · MVP · Innovation</span></div>
-      <div class="service-card reveal"><div class="service-icon">🛡️</div><h3>Cybersecurity Solutions</h3><p>Security audits, vulnerability assessments, secure code reviews, penetration testing coordination, and compliance-ready infrastructure hardening.</p><span class="service-tag">Security · Compliance</span></div>
+      <div class="service-card reveal"><div class="service-icon">📡</div><h3>IoT Software & Applications</h3><p>Custom software for IoT ecosystems — device dashboards, real-time monitoring, sensor data pipelines, and cloud-connected embedded system interfaces.</p><span class="service-tag">IoT · MQTT · Edge</span></div>
       <div class="service-card reveal"><div class="service-icon">📊</div><h3>Data Engineering & Analytics</h3><p>Data pipelines, warehousing, business intelligence dashboards, ETL workflows, and real-time analytics to turn raw data into actionable insights.</p><span class="service-tag">BI · ETL · Analytics</span></div>
+      <div class="service-card reveal"><div class="service-icon">🛡️</div><h3>Cybersecurity Solutions</h3><p>Security audits, vulnerability assessments, secure code reviews, penetration testing coordination, and compliance-ready infrastructure hardening.</p><span class="service-tag">Security · Compliance</span></div>
+      <div class="service-card reveal"><div class="service-icon">🔬</div><h3>R&D & Prototyping</h3><p>Feasibility studies, proof-of-concept builds, MVP development, and emerging technology evaluation — turning ideas into validated, fundable prototypes.</p><span class="service-tag">POC · MVP · Innovation</span></div>
       <div class="service-card reveal"><div class="service-icon">💡</div><h3>Technical Consultancy</h3><p>Architecture reviews, technology selection, scalability planning, and technical roadmap for startups and businesses building digital products.</p><span class="service-tag">Advisory</span></div>
     </div>
   </div>
 </section>
 
+<!-- HOW WE WORK -->
+<section class="section" id="process">
+  <div class="decor-gradient" style="top:50%;right:-150px;opacity:.4;transform:translateY(-50%)"></div>
+  <div class="decor-gradient" style="bottom:-100px;left:20%;width:250px;height:250px;opacity:.3"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label reveal" style="text-align:center">// Our Process</div>
+    <div class="section-title reveal" style="text-align:center">How We Work</div>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto">A structured, transparent process from first call to post-launch support — so you always know what's happening.</p>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <h4>Discovery</h4>
+        <p>We understand your business, users, and goals. Define scope, features, and success metrics together.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">02</div>
+        <h4>Architecture</h4>
+        <p>Technical design, database schema, API contracts, and UI wireframes. You approve before we write code.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">03</div>
+        <h4>Build</h4>
+        <p>Agile sprints with working demos every 2 weeks. You see real progress — not just status reports.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">04</div>
+        <h4>Launch</h4>
+        <p>Production deployment, performance testing, security hardening, and go-live with zero surprises.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">05</div>
+        <h4>Grow</h4>
+        <p>Ongoing support, monitoring, feature updates, and scaling as your business grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOUNDER -->
-<section class="section" id="founder">
-  <div class="container">
-    <div class="section-label reveal">// The Builder</div>
+<section class="section bg-900" id="founder">
+  <div class="decor-gradient" style="bottom:-100px;right:10%;width:400px;height:400px;opacity:.4"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label reveal">// The Story Behind TulsiX</div>
     <div class="section-title reveal">Meet the Founder</div>
     <div class="founder-grid">
       <div class="founder-card reveal">
         <div class="founder-visual">
-          <img src="founder.jpg" alt="Hari Narayan Sharma" class="founder-avatar-img" />
+          <img src="founder.jpg" alt="Hari Narayan Sharma — Founder & CEO, TulsiX Technologies" class="founder-avatar-img" />
           <div class="founder-avatar-name">Hari Narayan Sharma</div>
-          <div class="founder-avatar-role">Founder, CEO & CTO</div>
+          <div class="founder-avatar-role">Founder & CEO</div>
         </div>
         <div class="founder-badge">
           <div class="founder-badge-item"><div class="val">Founder</div><div class="lbl">Role</div></div>
           <div class="founder-badge-item"><div class="val">2026</div><div class="lbl">Founded</div></div>
-          <div class="founder-badge-item"><div class="val">Mathura</div><div class="lbl">Based In</div></div>
+          <div class="founder-badge-item"><div class="val">India</div><div class="lbl">Based In</div></div>
         </div>
       </div>
       <div class="founder-info reveal">
         <h3>Hari Narayan Sharma</h3>
-        <div class="role">Founder, CEO & CTO — TulsiX Technologies</div>
-        <p>A full-stack engineer with deep expertise in building production-grade software — from SaaS platforms to enterprise web applications. Hari founded TulsiX Technologies with a singular mission: to build technology that actually works, at scale, from day one.</p>
-        <p>His hands-on approach means every product that ships from TulsiX — including CAPilot — carries the same standard of engineering rigor, clean architecture, and meticulous attention to detail that defines the company's DNA.</p>
-        <p>When not building software, he's probably thinking about how to make it better.</p>
+        <div class="role">Founder & CEO — TulsiX Technologies</div>
+        <p>I started TulsiX because I kept seeing the same problem — businesses in India being forced to stitch together 5 different tools just to run their operations. CA firms tracking clients on spreadsheets, schools managing buses through phone calls, SMBs paying for software that was never built for how they actually work.</p>
+        <p>As a full-stack engineer, I knew the technology to solve these problems existed. What was missing was someone willing to build purpose-built platforms — not generic templates, but real products designed from the ground up for specific industries.</p>
+        <p>CAPilot was born from this conviction. I spent months understanding how Chartered Accountant firms in India actually operate — the compliance deadlines, the client management chaos, the invoicing headaches — and built a platform that replaces all of it with a single, integrated system.</p>
+        <p><strong style="color:var(--teal)">My vision for TulsiX:</strong> to build a company where every product we ship is something we'd bet our own business on. Not demos, not MVPs that never grow up — but real, production-grade platforms that businesses rely on every single day.</p>
         <div class="founder-links">
-          <a href="mailto:hari@tulsix.com" class="founder-link">✉️ hari@tulsix.com</a>
-          <a href="tel:+917982402673" class="founder-link">📞 +91 79824 02673</a>
+          <a href="mailto:contact@tulsix.com" class="founder-link">✉️ contact@tulsix.com</a>
+          <a href="https://www.linkedin.com/in/hari-narayan-sharma-350818104" target="_blank" rel="noopener noreferrer" class="founder-link">🔗 LinkedIn</a>
           <a href="https://github.com/harinarayansharma140" target="_blank" rel="noopener noreferrer" class="founder-link">⌨ GitHub</a>
         </div>
       </div>
@@ -632,7 +954,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
   <div class="container">
     <div class="section-label reveal">// The Team</div>
     <div class="section-title reveal">People Behind the Products</div>
-    <p class="section-sub reveal">A focused team of engineers building production-grade software with craft and care.</p>
+    <p class="section-sub reveal">A focused team of engineers building enterprise-ready software with craft and care.</p>
     <div class="team-grid">
 
       <div class="team-card founder-highlight reveal">
@@ -686,6 +1008,38 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="section bg-800" id="blog">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label reveal" style="text-align:center">// From the Blog</div>
+    <div class="section-title reveal" style="text-align:center">Latest Insights</div>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto">Engineering deep-dives, founder perspectives, and industry analysis.</p>
+    <div class="blog-preview-grid">
+      <a href="blog/why-i-built-tulsix.html" class="blog-preview-card reveal">
+        <div class="blog-preview-meta">Founder &middot; <time datetime="2026-04-10">Apr 10, 2026</time></div>
+        <h4>Why I Built TulsiX — A Founder's Story</h4>
+        <p>The gap I saw in Indian software, why I left the safe path, and what "from vision to digital reality" means to me.</p>
+        <span class="blog-preview-read">Read Article <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a href="blog/our-tech-stack-react-dotnet-azure.html" class="blog-preview-card reveal">
+        <div class="blog-preview-meta">Engineering &middot; <time datetime="2026-04-11">Apr 11, 2026</time></div>
+        <h4>Our Tech Stack: React, .NET & Azure</h4>
+        <p>A deep dive into the architecture and engineering decisions behind CAPilot — and why each choice matters at scale.</p>
+        <span class="blog-preview-read">Read Article <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a href="blog/ai-transforming-professional-services-india.html" class="blog-preview-card reveal">
+        <div class="blog-preview-meta">AI & Technology &middot; <time datetime="2026-04-12">Apr 12, 2026</time></div>
+        <h4>How AI is Transforming Professional Services in India</h4>
+        <p>From document processing to predictive analytics — AI is reshaping how professional services operate.</p>
+        <span class="blog-preview-read">Read Article <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="reveal">
+      <a href="blog/" class="btn-ghost" style="display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;font-size:.85rem">View All Articles <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -798,9 +1152,9 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
       <div class="contact-info reveal">
         <h3>Start a Project With Us</h3>
         <p>Have a product idea, need a technical partner, or want to explore CAPilot for your CA firm? Drop us a message — we respond within 24 hours.</p>
-        <div class="contact-detail"><div class="contact-icon">📍</div><div><h4>Headquarters</h4><p>TulsiX Technologies Pvt. Ltd.<br>Mathura, Uttar Pradesh, India</p></div></div>
-        <div class="contact-detail"><div class="contact-icon">✉️</div><div><h4>Email</h4><p>contact@tulsix.com</p></div></div>
-        <div class="contact-detail"><div class="contact-icon">📞</div><div><h4>Phone</h4><p>+91 79824 02673</p></div></div>
+        <div class="contact-detail"><div class="contact-icon">📍</div><div><h4>Corporate Office</h4><p>D-401, JM Florence Market<br>Greater Noida West, Tech Zone IV, 201318</p></div></div>
+        <div class="contact-detail"><div class="contact-icon">📍</div><div><h4>Registered Office</h4><p>TulsiX Technologies Pvt. Ltd.<br>Mathura, Uttar Pradesh, India</p></div></div>
+        <div class="contact-detail"><div class="contact-icon">✉️</div><div><h4>Email</h4><p>contact@tulsix.com<br>info@tulsix.com</p></div></div>
         <div class="contact-detail"><div class="contact-icon">🌐</div><div><h4>Products</h4><p>CAPilot · STIS (Coming Soon)</p></div></div>
       </div>
       <div class="contact-form reveal">
@@ -830,17 +1184,19 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" class="nav-brand"><div class="nav-leaf"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#2C2C2C"/><g transform="translate(12,10) scale(0.27)"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" fill="#1D9E75" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" fill="#0F6E56" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" fill="#085041" opacity="0.4"/></g></svg></div><div class="nav-name">Tulsi<span>X</span></div></a>
-        <p>From Vision to Digital Reality. We build production-grade SaaS platforms and digital products that help businesses operate smarter and grow with confidence.</p>
+        <p>From Vision to Digital Reality. We build enterprise-ready SaaS platforms and digital products that help businesses operate smarter and grow with confidence.</p>
       </div>
       <div class="footer-col"><h4>Products</h4><a href="#capilot">CAPilot</a><a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer">Try CAPilot</a><a href="#products">STIS — Coming Soon</a><a href="#products">All Products</a></div>
       <div class="footer-col"><h4>Company</h4><a href="#about">About Us</a><a href="#founder">Founder</a><a href="#team">Our Team</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
       <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="refund.html">Refund Policy</a><a href="cookies.html">Cookie Policy</a></div>
     </div>
     <div class="footer-legal">
-      <p>© 2026 TulsiX Technologies Private Limited. All rights reserved.<br>CIN: U62010UW2026PTC251073 | Mathura, Uttar Pradesh, India<br>Grievance Officer: Hari Narayan Sharma · grievance@tulsix.com</p>
+      <p>© 2026 TulsiX Technologies Private Limited. All rights reserved.<br>CIN: U62010UW2026PTC251073<br>Registered Address: Mathura, Uttar Pradesh, India<br>Corporate Address: D-401, JM Florence Market, Greater Noida West, Tech Zone IV, 201318<br>Grievance Officer: Hari Narayan Sharma · grievance@tulsix.com</p>
       <div class="footer-socials">
-        <a href="https://github.com/harinarayansharma140" target="_blank" rel="noopener noreferrer" title="GitHub">gh</a>
-        <a href="https://www.linkedin.com/in/hari-narayan-sharma-350818104" target="_blank" rel="noopener noreferrer" title="LinkedIn">in</a>
+        <a href="https://www.facebook.com/profile.php?id=61576abortyour" target="_blank" rel="noopener noreferrer" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/tulsix.tech" target="_blank" rel="noopener noreferrer" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.linkedin.com/company/tulsix" target="_blank" rel="noopener noreferrer" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://github.com/tulsix" target="_blank" rel="noopener noreferrer" title="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
       </div>
     </div>
   </div>
@@ -849,7 +1205,7 @@ footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding
 <!-- WHATSAPP FLOAT -->
 <div class="whatsapp-float">
   <div class="whatsapp-tooltip">Chat with TulsiX</div>
-  <a href="https://wa.me/917982402673?text=Hi%20Hari%2C%20I%20visited%20tulsix.com%20and%20would%20like%20to%20discuss%20a%20project." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/917982402673?text=Hi%20TulsiX%2C%20I%20visited%20tulsix.com%20and%20would%20like%20to%20discuss%20a%20project." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 </div>
@@ -878,8 +1234,114 @@ hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');nav
 navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')})});
 const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+// HERO FLOATING ELEMENTS
+(function(){
+  const container=document.getElementById('heroFloats');
+  if(!container||window.innerWidth<960)return;
+  const leafSVG='<svg viewBox="0 0 148 140" width="WW" height="HH" fill="currentColor"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity="0.4"/></svg>';
+  const codeSnippets=['const app = new CAPilot()','async fetchClients()','{status: "production"}','deploy --azure','git push origin main','npm run build','interface Client {','export default App','SELECT * FROM clients','res.status(200).json()','// production ready','dotnet publish -c Release','<Dashboard />','useEffect(() => {','border-radius: 8px;','JWT.verify(token)','pipeline: CI/CD','container.start()','api/v1/invoices','schema.validate()'];
+  const brackets=['{ }','< />','( )','[ ]','=> { }','/**/',';'];
+  function spawnFloat(){
+    const el=document.createElement('div');
+    el.classList.add('hero-float');
+    const type=Math.random();
+    if(type<0.35){
+      el.classList.add('hero-float--code');
+      el.textContent=codeSnippets[Math.floor(Math.random()*codeSnippets.length)];
+    }else if(type<0.55){
+      el.classList.add('hero-float--leaf');
+      const s=Math.random()*20+14;
+      el.innerHTML=leafSVG.replace('WW',s).replace('HH',s);
+    }else if(type<0.75){
+      el.classList.add('hero-float--dot');
+    }else if(type<0.9){
+      el.classList.add('hero-float--bracket');
+      el.textContent=brackets[Math.floor(Math.random()*brackets.length)];
+    }else{
+      el.classList.add('hero-float--ring');
+      const sz=Math.random()*30+10;
+      el.style.width=sz+'px';el.style.height=sz+'px';
+    }
+    el.style.left=Math.random()*100+'%';
+    el.style.bottom='-20px';
+    const dur=Math.random()*15+12;
+    el.style.animationDuration=dur+'s';
+    el.style.animationDelay=Math.random()*2+'s';
+    container.appendChild(el);
+    setTimeout(()=>el.remove(),(dur+2)*1000);
+  }
+  for(let i=0;i<12;i++)setTimeout(()=>spawnFloat(),i*800);
+  setInterval(spawnFloat,2200);
+})();
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 async function handleSubmit(e){e.preventDefault();const btn=document.getElementById('submitBtn');const form=e.target;btn.textContent='Sending...';btn.disabled=true;btn.style.opacity='.7';try{const fd=new FormData(form);const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});const data=await res.json();if(data.success){btn.textContent='✓ Message Sent!';btn.style.background='#1B7A5A';btn.style.color='#fff';btn.style.opacity='1';form.reset();setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.style.color='';btn.disabled=false},4000)}else{throw new Error()}}catch(err){btn.textContent='✗ Failed — Retry';btn.style.background='#c0392b';btn.style.color='#fff';btn.style.opacity='1';btn.disabled=false;setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.style.color=''},3000)}}
+
+// ANIMATED NUMBER COUNTER
+(function(){
+  const counterObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animateCounter(e.target);counterObs.unobserve(e.target)}})},{threshold:.5});
+  document.querySelectorAll('.trust-metric .num').forEach(el=>counterObs.observe(el));
+  function animateCounter(el){
+    const text=el.textContent.trim();
+    const match=text.match(/^([\d,]+\.?\d*)/);
+    if(!match)return;
+    const suffix=text.replace(match[0],'');
+    const target=parseFloat(match[0].replace(/,/g,''));
+    const hasDecimal=match[0].includes('.');
+    const duration=1800;
+    const start=performance.now();
+    function update(now){
+      const elapsed=now-start;
+      const progress=Math.min(elapsed/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      let current=eased*target;
+      if(hasDecimal){current=current.toFixed(1)}
+      else{current=Math.floor(current).toLocaleString('en-IN')}
+      el.textContent=current+suffix;
+      if(progress<1)requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+})();
+
+// BUTTON RIPPLE EFFECT
+document.querySelectorAll('.btn-teal,.btn-ghost,.btn-dark,.pricing-cta,.form-submit').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    const ripple=document.createElement('span');
+    ripple.classList.add('ripple');
+    const rect=this.getBoundingClientRect();
+    const size=Math.max(rect.width,rect.height);
+    ripple.style.width=ripple.style.height=size+'px';
+    ripple.style.left=(e.clientX-rect.left-size/2)+'px';
+    ripple.style.top=(e.clientY-rect.top-size/2)+'px';
+    this.appendChild(ripple);
+    setTimeout(()=>ripple.remove(),700);
+  });
+});
+
+// CURSOR SPOTLIGHT
+(function(){
+  const hero=document.querySelector('.hero');
+  const spot=document.getElementById('heroSpotlight');
+  if(!hero||!spot||window.innerWidth<960)return;
+  hero.addEventListener('mousemove',e=>{
+    const rect=hero.getBoundingClientRect();
+    spot.style.transform='translate('+(e.clientX-rect.left)+'px,'+(e.clientY-rect.top)+'px) translate(-50%,-50%)';
+  });
+})();
+
+// PARALLAX ON SCROLL
+(function(){
+  if(window.innerWidth<960)return;
+  const glows=document.querySelectorAll('.hero-glow');
+  const orbit=document.querySelector('.hero-orbit');
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    if(y>800)return;
+    glows.forEach((g,i)=>{g.style.transform='translateY('+y*(0.08+i*0.03)+'px)'});
+    if(orbit)orbit.style.transform='translateY('+y*0.12+'px)';
+  },{passive:true});
+})();
 </script>
 </body>
 </html>

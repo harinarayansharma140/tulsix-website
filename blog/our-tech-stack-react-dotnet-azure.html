@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
+<title>Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot | TulsiX Technologies</title>
+<meta name="description" content="A deep technical dive into why TulsiX Technologies chose React, .NET 8, and Azure to build CAPilot — covering architecture, deployment, security, and CI/CD decisions.">
+<meta name="keywords" content="React .NET Azure tech stack, CAPilot architecture, SaaS tech stack India, Azure Static Web Apps, .NET 8 backend, React frontend architecture, CI/CD GitHub Actions Azure">
+<meta property="og:title" content="Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot">
+<meta property="og:description" content="A deep technical dive into the architecture decisions behind CAPilot — React frontend, .NET 8 backend, Azure cloud, and the engineering practices that hold it all together.">
+<meta property="og:url" content="https://tulsix.com/blog/our-tech-stack-react-dotnet-azure.html">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://tulsix.com/tulsix-og.png">
+<meta property="og:site_name" content="TulsiX Technologies">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot">
+<meta name="twitter:description" content="A deep technical dive into the architecture decisions behind CAPilot — React frontend, .NET 8 backend, Azure cloud, and the engineering practices that hold it all together.">
+<meta name="twitter:image" content="https://tulsix.com/tulsix-og.png">
+<link rel="canonical" href="https://tulsix.com/blog/our-tech-stack-react-dotnet-azure.html">
+<link rel="icon" type="image/svg+xml" href="../tulsix-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --slate-950:#0E1017;--slate-900:#131620;--slate-800:#1A1E2E;--slate-700:#2C3040;--slate-600:#3D4258;--slate-500:#555A70;--slate-400:#7E8399;--slate-300:#A8ABBA;
+  --teal:#5DCAA5;--teal-light:#7EDABC;--teal-dim:rgba(93,202,165,.12);--teal-glow:rgba(93,202,165,.25);
+  --white:#F8F9FA;--off-white:#E8EAED;--pure-white:#fff;
+  --font-primary:'Sora',system-ui,sans-serif;
+  --font-display:'Crimson Pro',Georgia,serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-primary);background:var(--slate-950);color:var(--off-white);-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(14,16,23,.95);backdrop-filter:blur(24px);box-shadow:0 1px 30px rgba(0,0,0,.4)}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-leaf{width:32px;height:32px;flex-shrink:0}
+.nav-name{font-size:1.25rem;font-weight:700;color:var(--white);letter-spacing:-.02em}
+.nav-name span{color:var(--teal)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:var(--slate-300);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.03em;transition:color .3s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--teal)}
+.nav-cta{background:var(--teal)!important;color:var(--slate-950)!important;padding:.5rem 1.3rem!important;border-radius:6px;font-weight:600!important}
+.nav-cta:hover{background:var(--teal-light)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px;z-index:1001}
+.hamburger span{width:22px;height:2px;background:var(--white);transition:all .3s ease;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+@media(max-width:960px){
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:380px;height:100vh;background:var(--slate-900);flex-direction:column;padding:6rem 2.5rem;gap:1.8rem;transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:-20px 0 60px rgba(0,0,0,.6)}
+  .nav-links.open{right:0}
+  .nav-links a{font-size:1.1rem}
+}
+
+.breadcrumbs{max-width:780px;margin:0 auto;padding:6rem 5% 0;font-size:.75rem;color:var(--slate-400)}
+.breadcrumbs a{color:var(--slate-400);text-decoration:none;transition:color .3s}
+.breadcrumbs a:hover{color:var(--teal)}
+.breadcrumbs .sep{margin:0 .4rem;color:var(--slate-600)}
+.breadcrumbs .current{color:var(--slate-300)}
+
+.article-header{padding:1.5rem 5% 2.5rem;text-align:center;max-width:780px;margin:0 auto}
+.article-back{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.03em;margin-bottom:2rem;transition:gap .3s}
+.article-back:hover{gap:.6rem}
+.article-meta{font-family:var(--font-mono);font-size:.65rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.article-header h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem}
+.article-header .subtitle{font-size:1.05rem;color:var(--slate-300);line-height:1.7;max-width:620px;margin:0 auto}
+
+.article-body{max-width:780px;margin:0 auto;padding:0 5% 3rem}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--teal);letter-spacing:-.02em;margin:2.5rem 0 1rem;line-height:1.3}
+.article-body h3{font-size:1.1rem;font-weight:700;color:var(--white);margin:2rem 0 .8rem;line-height:1.35}
+.article-body p{font-size:.95rem;color:var(--off-white);line-height:1.85;margin-bottom:1.2rem}
+.article-body ul,.article-body ol{margin:0 0 1.2rem 1.2rem;padding:0}
+.article-body li{font-size:.95rem;color:var(--off-white);line-height:1.85;margin-bottom:.5rem}
+.article-body strong{color:var(--white);font-weight:600}
+.article-body a{color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(93,202,165,.3);transition:border-color .3s}
+.article-body a:hover{border-color:var(--teal)}
+.article-body blockquote{border-left:3px solid var(--teal);padding:.8rem 1.2rem;margin:1.5rem 0;background:var(--teal-dim);border-radius:0 8px 8px 0}
+.article-body blockquote p{margin:0;color:var(--slate-300);font-style:italic}
+.article-body code{font-family:var(--font-mono);font-size:.82rem;background:var(--slate-800);padding:.15rem .4rem;border-radius:4px;color:var(--teal-light)}
+
+.article-divider{width:60px;height:2px;background:var(--slate-700);margin:2.5rem auto;border:none}
+
+.author-bio{max-width:700px;margin:0 auto 2rem;padding:2rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:14px;display:flex;gap:1.5rem;align-items:flex-start}
+.author-bio .author-avatar{width:56px;height:56px;border-radius:50%;background:var(--teal-dim);border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;color:var(--teal);flex-shrink:0}
+.author-bio .author-info h4{font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.2rem}
+.author-bio .author-info .author-title{font-size:.78rem;color:var(--teal);font-weight:500;margin-bottom:.5rem}
+.author-bio .author-info p{font-size:.82rem;color:var(--slate-300);line-height:1.6;margin-bottom:.5rem}
+.author-bio .author-links{display:flex;gap:1rem}
+.author-bio .author-links a{font-size:.75rem;color:var(--slate-400);text-decoration:none;font-weight:500;transition:color .3s}
+.author-bio .author-links a:hover{color:var(--teal)}
+@media(max-width:600px){.author-bio{flex-direction:column;align-items:center;text-align:center}.author-bio .author-links{justify-content:center}}
+
+.share-section{max-width:700px;margin:0 auto 2rem;text-align:center}
+.share-section p{font-size:.78rem;color:var(--slate-400);margin-bottom:.8rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
+.share-buttons{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:8px;font-size:.78rem;font-weight:600;text-decoration:none;transition:all .3s;border:1px solid var(--slate-600);color:var(--slate-300);background:transparent;cursor:pointer}
+.share-btn:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
+
+.related-posts{max-width:780px;margin:0 auto 3rem;padding:0 5%}
+.related-posts h3{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:1.2rem;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.related-card{background:var(--slate-800);border:1px solid var(--slate-600);border-radius:12px;padding:1.2rem;text-decoration:none;transition:all .3s}
+.related-card:hover{border-color:rgba(93,202,165,.25);transform:translateY(-2px)}
+.related-card .related-meta{font-family:var(--font-mono);font-size:.6rem;color:var(--teal);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.related-card h4{font-size:.88rem;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:.4rem}
+.related-card p{font-size:.75rem;color:var(--slate-400);line-height:1.5}
+
+.article-cta{max-width:700px;margin:0 auto 3rem;padding:2.5rem;background:var(--slate-900);border:1px solid var(--slate-700);border-radius:16px;text-align:center}
+.article-cta h3{font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.article-cta p{font-size:.88rem;color:var(--slate-400);margin-bottom:1.2rem;line-height:1.7}
+.article-cta .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-teal{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal);color:var(--slate-950);padding:.75rem 1.5rem;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;transition:all .3s}
+.btn-teal:hover{background:var(--teal-light);transform:translateY(-2px);box-shadow:0 8px 30px var(--teal-glow)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--white);padding:.75rem 1.5rem;border:1.5px solid var(--slate-600);border-radius:8px;font-weight:600;font-size:.85rem;text-decoration:none;transition:all .3s}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-dim)}
+
+footer{background:var(--slate-950);border-top:1px solid var(--slate-700);padding:2rem 5%;text-align:center}
+footer p{font-size:.75rem;color:var(--slate-400);line-height:1.6}
+footer a{color:var(--teal);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* AMBIENT EFFECTS */
+.page-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.page-bg .glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(93,202,165,.06),transparent 70%)}
+.page-bg .glow-1{width:500px;height:500px;top:-10%;right:-5%;animation:pgPulse 8s ease-in-out infinite}
+.page-bg .glow-2{width:400px;height:400px;bottom:10%;left:-8%;animation:pgPulse 8s ease-in-out 3s infinite}
+.page-bg .leaf{position:absolute;opacity:.025;pointer-events:none}
+.page-bg .leaf-1{bottom:15%;right:5%;width:140px;height:135px}
+.page-bg .leaf-2{top:30%;left:3%;width:100px;height:96px;transform:rotate(15deg)}
+.page-bg .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(93,202,165,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(93,202,165,.03) 1px,transparent 1px);background-size:80px 80px}
+@keyframes pgPulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.06)}}
+@media(max-width:960px){.page-bg .leaf{display:none}}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot",
+  "description": "A deep technical dive into why TulsiX Technologies chose React, .NET 8, and Azure to build CAPilot — covering architecture, deployment, security, and CI/CD decisions.",
+  "author": {
+    "@type": "Person",
+    "name": "Hari Narayan Sharma",
+    "url": "https://www.linkedin.com/in/hari-narayan-sharma-350818104"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "TulsiX Technologies",
+    "url": "https://tulsix.com"
+  },
+  "datePublished": "2026-04-11",
+  "dateModified": "2026-04-13",
+  "mainEntityOfPage": "https://tulsix.com/blog/our-tech-stack-react-dotnet-azure.html",
+  "keywords": ["React", ".NET 8", "Azure", "CAPilot architecture", "SaaS tech stack", "CI/CD", "GitHub Actions"]
+}
+</script>
+</head>
+<body>
+
+<!-- AMBIENT BACKGROUND -->
+<div class="page-bg">
+  <div class="grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="leaf leaf-1"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+  <div class="leaf leaf-2"><svg viewBox="0 0 148 140" fill="#5DCAA5" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity=".5"/></svg></div>
+</div>
+
+<nav>
+  <a href="../index.html" class="nav-brand">
+    <div class="nav-leaf"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="#2C2C2C"/><g transform="translate(12,10) scale(0.27)"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" fill="#1D9E75" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" fill="#0F6E56" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" fill="#085041" opacity="0.4"/></g></svg></div>
+    <div class="nav-name">Tulsi<span>X</span></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#products">Products</a>
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#team">Team</a>
+    <a href="./" class="active">Blog</a>
+    <a href="../index.html#contact" class="nav-cta">Get In Touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a><span class="sep">&gt;</span><a href="./">Blog</a><span class="sep">&gt;</span><span class="current">Our Tech Stack: Why We Chose React, .NET & Azure</span>
+</div>
+
+<header class="article-header">
+  <a href="./" class="article-back"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to Blog</a>
+  <div class="article-meta">Engineering &middot; <time datetime="2026-04-11">April 11, 2026</time> &middot; 9 min read</div>
+  <h1>Our Tech Stack: Why We Chose React, .NET & Azure to Build CAPilot</h1>
+  <p class="subtitle">Every technology decision has trade-offs. Here is why we made the choices we did — and how they let a small team ship production-grade software fast.</p>
+</header>
+
+<article class="article-body">
+
+<h2>Why Tech Stack Decisions Matter More Than You Think</h2>
+
+<p>When you are building a SaaS product, your tech stack is not just a list of logos for your landing page. It is the foundation that determines how fast you can ship features, how reliably your system runs under load, how secure your users' data is, and how easy it is to onboard new engineers. Get it wrong, and you spend the next three years fighting your own infrastructure instead of building product.</p>
+
+<p>At TulsiX, we spent serious time evaluating our options before writing the first line of CAPilot code. This article is a transparent walkthrough of what we chose, why we chose it, and how it all fits together. If you are a technical founder, an engineering lead, or just someone curious about how modern SaaS products are built in India, this is for you.</p>
+
+<h2>The Frontend: React</h2>
+
+<p>For the CAPilot frontend, we chose React. Not because it is the most popular framework — though it is — but because it solves the specific problems we face as a practice management platform.</p>
+
+<h3>Component Architecture for Complex UIs</h3>
+
+<p>CAPilot is not a simple CRUD application. A single screen might show a client's profile, their compliance status across six different filing types, a task list with assignments, recent invoices, and uploaded documents. React's component model lets us build each of these as an isolated, reusable piece and compose them into complex views without the code becoming unmanageable.</p>
+
+<p>We use a clear component hierarchy: page-level components handle routing and data fetching, section components manage layout, and atomic components (buttons, inputs, status badges, date pickers) ensure consistency across the entire application. This means when we update the design of a status badge, it changes everywhere — the client dashboard, the task list, the compliance calendar — without touching each page individually.</p>
+
+<h3>Ecosystem and Hiring</h3>
+
+<p>The React ecosystem is mature. Libraries like React Router for navigation, React Query (TanStack Query) for server state management, and Zustand for client-side state give us battle-tested solutions for common problems. We are not reinventing the wheel; we are building product features.</p>
+
+<p>Equally important: React is the most widely known frontend framework among Indian engineers. When we hire, we are not asking candidates to learn a niche technology. They can be productive on day one.</p>
+
+<h3>TypeScript Everywhere</h3>
+
+<p>We use TypeScript across the entire frontend codebase. This is non-negotiable for us. When your application has hundreds of components passing data between them, type safety catches entire categories of bugs before they ever reach a user. The autocomplete and refactoring support in modern editors (we use VS Code) makes development faster, not slower.</p>
+
+<blockquote><p>TypeScript is not about writing more code. It is about writing correct code — and catching mistakes at compile time instead of in production at 2 AM.</p></blockquote>
+
+<h2>The Backend: .NET 8</h2>
+
+<p>For the API layer and business logic, we chose .NET 8 (C#). This surprises some people who expect an Indian startup to be running Node.js or Python. Here is why .NET was the right call for us.</p>
+
+<h3>Performance That Scales</h3>
+
+<p>.NET 8 is one of the fastest web frameworks available, consistently ranking near the top of the TechEmpower benchmarks. For a SaaS product that needs to handle hundreds of concurrent users querying client records, generating invoices, and running compliance checks, raw performance matters. We do not want to throw hardware at a slow runtime when a faster one is available at the same cost.</p>
+
+<p>The performance advantage becomes especially important during peak periods — ITR filing season, GST return deadlines — when every CA firm on the platform is active simultaneously. .NET handles these spikes without breaking a sweat.</p>
+
+<h3>Type Safety and Enterprise Readiness</h3>
+
+<p>C# is a strongly typed language with excellent support for patterns that matter in business software: dependency injection, middleware pipelines, data validation attributes, and structured error handling. When you are building financial software — invoicing, billing, compliance tracking — you need guardrails that prevent subtle bugs from corrupting data.</p>
+
+<p>We use Entity Framework Core as our ORM, which gives us type-safe database queries, automatic migration management, and a clean abstraction over SQL Server. Combined with C#'s nullable reference types, we catch null reference errors at compile time rather than discovering them when a user tries to generate an invoice.</p>
+
+<h3>The .NET Ecosystem</h3>
+
+<p>The .NET ecosystem provides built-in solutions for authentication (ASP.NET Identity), authorization (policy-based), API documentation (Swagger/OpenAPI), background job processing (hosted services), and email sending. We also use libraries like FluentValidation for request validation, AutoMapper for object mapping, and Serilog for structured logging. These are not experimental libraries — they are mature, well-maintained, and used in production by thousands of companies.</p>
+
+<h2>The Cloud: Microsoft Azure</h2>
+
+<p>Our entire infrastructure runs on Microsoft Azure. This was a deliberate choice driven by several factors.</p>
+
+<h3>PaaS-First Architecture</h3>
+
+<p>We are a small team. We do not have — and do not want — a dedicated infrastructure team managing Kubernetes clusters, patching Linux servers, or debugging networking issues. Azure's Platform-as-a-Service offerings let us focus on building product while Microsoft handles the infrastructure.</p>
+
+<p>Our architecture uses:</p>
+
+<ul>
+  <li><strong>Azure Static Web Apps</strong> for the React frontend — global CDN distribution, automatic HTTPS, custom domains, and zero server management. Deployments happen automatically on every push to the main branch.</li>
+  <li><strong>Azure App Service</strong> for the .NET API — managed hosting with auto-scaling, health monitoring, deployment slots for zero-downtime releases, and built-in diagnostics.</li>
+  <li><strong>Azure SQL Database</strong> for our relational data — managed SQL Server with automatic backups, point-in-time restore, geo-replication options, and built-in threat detection.</li>
+  <li><strong>Azure Blob Storage</strong> for document storage — encrypted at rest, role-based access, and virtually unlimited capacity for client documents.</li>
+  <li><strong>Azure Key Vault</strong> for secrets management — connection strings, API keys, and JWT signing keys are never stored in code or configuration files.</li>
+</ul>
+
+<h3>Why Not AWS or GCP?</h3>
+
+<p>Honest answer: all three major cloud providers are excellent, and you can build great products on any of them. We chose Azure because of its tight integration with .NET (unsurprising, given Microsoft builds both), the quality of its PaaS offerings for our specific architecture, and the fact that Azure has data centres in India (Central India and South India regions), which means lower latency for our users.</p>
+
+<p>Azure's pricing for our workload profile — a managed database, a couple of app services, blob storage, and a static web app — is also very competitive. For a bootstrapped product company, cost predictability matters.</p>
+
+<h2>The Database: SQL Server</h2>
+
+<p>We use Azure SQL Database, which is managed SQL Server in the cloud. For a practice management platform dealing with financial data, a relational database was the obvious choice.</p>
+
+<p>CA firm data is inherently relational. A client has multiple engagements. Each engagement has multiple tasks. Each task has assignments, deadlines, and status updates. Invoices link to clients, services, and tax calculations. This is a domain where foreign keys, transactions, and referential integrity are not optional luxuries — they are requirements.</p>
+
+<p>We considered PostgreSQL (and it would have worked fine), but SQL Server's integration with Entity Framework Core is the most mature, Azure SQL's managed offering is excellent, and our team has deep SQL Server expertise. Sometimes the best technology choice is the one your team knows cold.</p>
+
+<blockquote><p>We do not choose technologies to be interesting. We choose technologies to be reliable. Our users are running their businesses on our platform — they do not care what database we use, they care that their data is always there when they need it.</p></blockquote>
+
+<h2>Authentication and Authorization</h2>
+
+<p>Security is not a feature we add later — it is baked into every layer of the system.</p>
+
+<h3>JWT-Based Authentication</h3>
+
+<p>CAPilot uses JSON Web Tokens (JWT) for authentication. When a user logs in with their email and password, the server validates credentials, generates a signed JWT containing the user's identity and roles, and returns it to the client. Every subsequent API request includes this token, and the server validates it without needing a database lookup for each request.</p>
+
+<p>We use short-lived access tokens (15 minutes) combined with longer-lived refresh tokens stored in HttpOnly cookies. This means that even if an access token is somehow intercepted, the window of exposure is small. And because refresh tokens are HttpOnly, they are not accessible to JavaScript — mitigating XSS-based token theft.</p>
+
+<h3>Role-Based Access Control</h3>
+
+<p>CA firms have clear hierarchies — partners, managers, senior associates, article clerks. Not everyone should have access to everything. CAPilot implements role-based access control (RBAC) at both the API level and the UI level:</p>
+
+<ul>
+  <li><strong>API level:</strong> Every endpoint is decorated with authorization policies that check the user's role before processing the request. An article clerk cannot access firm-wide billing data, period.</li>
+  <li><strong>UI level:</strong> Components conditionally render based on the user's permissions. An article clerk does not even see the billing tab — not because we hide it after loading, but because the navigation is built dynamically based on their role.</li>
+</ul>
+
+<h2>CI/CD: GitHub Actions to Azure</h2>
+
+<p>Our deployment pipeline is fully automated using GitHub Actions. Here is how a code change goes from a developer's machine to production:</p>
+
+<ol>
+  <li><strong>Developer pushes to a feature branch</strong> — automated checks run: TypeScript compilation, ESLint, unit tests, .NET build, and API tests.</li>
+  <li><strong>Pull request is created</strong> — the PR triggers a preview deployment. Reviewers can test the actual running application, not just read code diffs.</li>
+  <li><strong>Code review and approval</strong> — at least one team member reviews the PR. We use GitHub's CODEOWNERS to ensure changes to critical paths (authentication, billing, data models) require senior review.</li>
+  <li><strong>Merge to main</strong> — triggers the production deployment pipeline. The frontend is built and deployed to Azure Static Web Apps. The backend is built, tested, and deployed to Azure App Service using deployment slots.</li>
+  <li><strong>Health checks</strong> — after deployment, automated health checks verify the application is responding correctly. If health checks fail, the deployment is automatically rolled back.</li>
+</ol>
+
+<p>This entire pipeline runs in under 8 minutes. A developer can merge a PR and see their change live in production before their coffee gets cold.</p>
+
+<h2>Security-First Approach</h2>
+
+<p>When you are handling financial data for CA firms, security is not something you bolt on — it has to be part of the architecture from day one.</p>
+
+<h3>Transport Security</h3>
+
+<p>Every connection to CAPilot is HTTPS. There is no HTTP endpoint. We use HSTS headers to ensure browsers never downgrade to unencrypted connections. Azure Static Web Apps and App Service both enforce TLS 1.2 minimum.</p>
+
+<h3>Content Security Policy</h3>
+
+<p>Our frontend sends strict Content Security Policy (CSP) headers that prevent inline scripts, restrict which domains can serve resources, and block common XSS attack vectors. We also set <code>X-Frame-Options: DENY</code> to prevent clickjacking and <code>X-Content-Type-Options: nosniff</code> to prevent MIME-type sniffing attacks.</p>
+
+<h3>Input Validation</h3>
+
+<p>Every piece of data that enters our system through the API is validated using FluentValidation rules. We validate not just types and lengths, but business rules — a GST number must match the expected format, a PAN must be exactly 10 characters in the correct pattern, invoice amounts must be non-negative. Invalid data is rejected before it ever reaches the business logic layer.</p>
+
+<h3>Data Encryption</h3>
+
+<p>Data is encrypted at rest using Azure's built-in encryption (AES-256) and in transit using TLS. Sensitive fields like API keys and connection strings are stored in Azure Key Vault, not in configuration files or environment variables that could be accidentally exposed.</p>
+
+<h2>Code Quality Practices</h2>
+
+<p>Technology choices are only half the story. How you write code matters just as much as what you write it in.</p>
+
+<h3>Code Reviews</h3>
+
+<p>Every change to the CAPilot codebase goes through a pull request. No exceptions. Even the founder's code gets reviewed. This is not about gatekeeping — it is about catching bugs, sharing knowledge, and maintaining consistency. Our PR template includes sections for: what changed, why it changed, how to test it, and any deployment considerations.</p>
+
+<h3>Testing Strategy</h3>
+
+<p>We use a pragmatic testing approach:</p>
+
+<ul>
+  <li><strong>Unit tests</strong> for business logic — invoice calculations, compliance date computations, role permission checks. These are fast and catch regressions immediately.</li>
+  <li><strong>Integration tests</strong> for API endpoints — we spin up an in-memory database, call the API, and verify the response. These ensure that validation, authentication, and database interactions work together correctly.</li>
+  <li><strong>Manual testing</strong> for UI flows — while we are building out automated E2E tests, critical user journeys (login, client creation, invoice generation) are manually tested before each release.</li>
+</ul>
+
+<h3>Structured Logging with Serilog</h3>
+
+<p>Every API request, every database query, every error is logged in a structured format using Serilog. Logs include correlation IDs so we can trace a single user action across multiple services. When something goes wrong in production, we can search logs by user, by endpoint, by error type, and reconstruct exactly what happened.</p>
+
+<h2>Monitoring and Observability</h2>
+
+<p>You cannot fix what you cannot see. We use Azure Application Insights for real-time monitoring of both the frontend and backend:</p>
+
+<ul>
+  <li><strong>Request metrics</strong> — response times, error rates, throughput, and availability, all broken down by endpoint.</li>
+  <li><strong>Exception tracking</strong> — every unhandled exception is captured with full stack traces, request context, and user information (anonymised where appropriate).</li>
+  <li><strong>Custom metrics</strong> — we track business-level events like invoice generation count, task completion rates, and login frequency. This helps us understand not just whether the system is healthy, but whether users are getting value.</li>
+  <li><strong>Alerts</strong> — if the error rate spikes, if response times exceed thresholds, or if the database approaches capacity, we get notified immediately via email and Teams.</li>
+</ul>
+
+<h2>How This Stack Enables Rapid Iteration</h2>
+
+<p>The real test of a tech stack is not how it looks on paper — it is how fast you can ship. Here is what our stack enables in practice:</p>
+
+<ul>
+  <li>A new API endpoint, from writing code to production, takes under two hours including code review.</li>
+  <li>A new frontend feature, from design to deployment, typically takes one to three days depending on complexity.</li>
+  <li>Database schema changes are handled through EF Core migrations and deployed automatically — no manual SQL scripts.</li>
+  <li>Rolling back a bad deployment takes under 60 seconds using Azure deployment slots.</li>
+  <li>Onboarding a new developer to the point where they can make their first PR takes about two days.</li>
+</ul>
+
+<p>This speed is not about cutting corners. It is about choosing tools that work well together, automating everything that can be automated, and spending engineering time on product features instead of infrastructure plumbing.</p>
+
+<h2>What We Would Do Differently</h2>
+
+<p>No tech stack is perfect, and honesty matters. Here are a few things we have learned:</p>
+
+<ul>
+  <li><strong>We should have set up E2E tests earlier.</strong> Manual testing works when you have three pages. When you have thirty, it does not scale. We are now building out Playwright-based E2E tests, but we wish we had started sooner.</li>
+  <li><strong>Azure Static Web Apps has limitations.</strong> It is excellent for most things, but custom redirect rules and advanced routing can be fiddly. For our use case, it is still the right choice, but we have had to work around a few edge cases.</li>
+  <li><strong>We underestimated the importance of design tokens.</strong> Our CSS was initially somewhat ad-hoc. We have since moved to a proper design system with CSS custom properties, which has dramatically improved consistency.</li>
+</ul>
+
+<p>These are solvable problems, and we are solving them. The core architecture — React, .NET, Azure, SQL Server — has proven itself solid.</p>
+
+<h2>Wrapping Up</h2>
+
+<p>Technology choices are not about following trends or impressing other engineers. They are about building a foundation that lets you serve your users reliably, ship features quickly, and scale when growth demands it.</p>
+
+<p>For CAPilot, React + TypeScript gives us a fast, type-safe frontend. .NET 8 gives us a performant, enterprise-ready backend. Azure gives us managed infrastructure that a small team can operate confidently. And GitHub Actions ties it all together with automated testing and deployment.</p>
+
+<p>If you are building a SaaS product and evaluating your own stack, I hope this gives you a useful reference point. And if you are a CA firm wondering what is under the hood of the software you are trusting with your practice data — now you know.</p>
+
+</article>
+
+<hr class="article-divider">
+
+<div class="author-bio">
+  <div class="author-avatar">HN</div>
+  <div class="author-info">
+    <h4>Hari Narayan Sharma</h4>
+    <div class="author-title">Founder & CEO at TulsiX Technologies</div>
+    <p>Building production-grade SaaS products for Indian professionals who deserve better tools than spreadsheets and WhatsApp.</p>
+    <div class="author-links">
+      <a href="https://www.linkedin.com/in/hari-narayan-sharma-350818104" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/harinarayansharma140" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<div class="share-section">
+  <p>Share this article</p>
+  <div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?url=https://tulsix.com/blog/our-tech-stack-react-dotnet-azure.html&text=Our%20Tech%20Stack%3A%20Why%20We%20Chose%20React%2C%20.NET%20%26%20Azure%20to%20Build%20CAPilot" target="_blank" rel="noopener" class="share-btn">X / Twitter</a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://tulsix.com/blog/our-tech-stack-react-dotnet-azure.html" target="_blank" rel="noopener" class="share-btn">LinkedIn</a>
+    <button class="share-btn" onclick="navigator.clipboard.writeText('https://tulsix.com/blog/our-tech-stack-react-dotnet-azure.html');this.textContent='Copied!'">Copy Link</button>
+  </div>
+</div>
+
+<div class="related-posts">
+  <h3>Related Articles</h3>
+  <div class="related-grid">
+    <a href="why-i-built-tulsix.html" class="related-card">
+      <div class="related-meta">Founder &middot; 6 min read</div>
+      <h4>Why I Built TulsiX — A Founder's Story</h4>
+      <p>The gap in Indian software and the decision to build a product company.</p>
+    </a>
+    <a href="what-makes-production-grade-saas.html" class="related-card">
+      <div class="related-meta">Engineering &middot; 6 min read</div>
+      <h4>What Makes a SaaS Platform "Production-Grade"?</h4>
+      <p>Architecture, security, scaling, monitoring — what separates real from demo.</p>
+    </a>
+    <a href="ai-transforming-professional-services-india.html" class="related-card">
+      <div class="related-meta">AI & Technology &middot; 8 min read</div>
+      <h4>How AI is Transforming Professional Services in India</h4>
+      <p>Use cases, challenges, and what comes next for AI in Indian professional services.</p>
+    </a>
+  </div>
+</div>
+
+<div class="article-cta">
+  <h3>See the Stack in Action</h3>
+  <p>CAPilot is built on the architecture described in this article — React, .NET 8, Azure. See how it comes together as the operating system for CA firms.</p>
+  <div class="cta-buttons">
+    <a href="https://capilot.in" target="_blank" rel="noopener" class="btn-teal">Explore CAPilot <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="../index.html#contact" class="btn-ghost">Contact Us <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2026 TulsiX Technologies Private Limited. All rights reserved. | <a href="../privacy.html">Privacy</a> | <a href="../terms.html">Terms</a> | <a href="../index.html">Home</a></p>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('open')});
+navLinks.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');navLinks.classList.remove('open')})});
+</script>
+</body>
+</html>
