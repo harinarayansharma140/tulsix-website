@@ -1,0 +1,12 @@
+# If you have discovered a security vulnerability in any TulsiX
+# property (this site, capilot.tulsix.com, or any other TulsiX
+# infrastructure), please disclose it responsibly via the contact
+# below. We commit to acknowledging your report within 48 hours.
+
+Contact: mailto:security@tulsix.com
+Contact: mailto:contact@tulsix.com
+Expires: 2027-04-30T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://tulsix.com/.well-known/security.txt
+Policy: https://tulsix.com/privacy.html
+Hiring: https://tulsix.com/about.html

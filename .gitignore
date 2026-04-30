@@ -1,0 +1,23 @@
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs / temp
+*.log
+*.tmp
+node_modules/
+
+# Local Claude / AI tooling state
+.claude/

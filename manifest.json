@@ -1,0 +1,27 @@
+{
+  "name": "TulsiX Technologies",
+  "short_name": "TulsiX",
+  "description": "Production-grade SaaS platforms and custom software, engineered in India for businesses worldwide.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0E1017",
+  "theme_color": "#0E1017",
+  "lang": "en-IN",
+  "categories": ["business", "productivity", "developer"],
+  "icons": [
+    {
+      "src": "/tulsix-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/tulsix-og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

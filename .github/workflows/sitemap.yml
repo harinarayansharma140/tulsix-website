@@ -1,0 +1,85 @@
+name: Auto-update sitemap.xml
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+
+permissions:
+  contents: write
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Update lastmod for changed HTML files
+        run: |
+          set -euo pipefail
+          today=$(date -u +%Y-%m-%d)
+
+          # Map repo HTML paths to public sitemap URLs
+          declare -A url_map=(
+            ["index.html"]="https://tulsix.com/"
+            ["capilot.html"]="https://tulsix.com/capilot.html"
+            ["services.html"]="https://tulsix.com/services.html"
+            ["about.html"]="https://tulsix.com/about.html"
+            ["privacy.html"]="https://tulsix.com/privacy.html"
+            ["terms.html"]="https://tulsix.com/terms.html"
+            ["refund.html"]="https://tulsix.com/refund.html"
+            ["cookies.html"]="https://tulsix.com/cookies.html"
+            ["case-studies/index.html"]="https://tulsix.com/case-studies/"
+            ["case-studies/capilot.html"]="https://tulsix.com/case-studies/capilot.html"
+            ["blog/index.html"]="https://tulsix.com/blog/"
+          )
+
+          changed_files=$(git diff --name-only HEAD~1 HEAD -- '*.html' || true)
+          if [ -z "$changed_files" ]; then
+            echo "No HTML files changed."
+            exit 0
+          fi
+
+          updated=0
+          while IFS= read -r f; do
+            url="${url_map[$f]:-}"
+            # Blog post pages: any file in blog/ directory that isn't index
+            if [ -z "$url" ] && [[ "$f" =~ ^blog/.+\.html$ ]] && [ "$f" != "blog/index.html" ]; then
+              url="https://tulsix.com/$f"
+            fi
+            if [ -n "$url" ]; then
+              # Update <lastmod> for this URL — match within the URL's <url> block.
+              python3 - "$url" "$today" <<'PY'
+          import sys, re, pathlib
+          url, today = sys.argv[1], sys.argv[2]
+          p = pathlib.Path("sitemap.xml")
+          text = p.read_text()
+          # Match the whole <url>...<loc>URL</loc>...<lastmod>...</lastmod>...</url> block
+          pattern = re.compile(r"(<url>\s*<loc>" + re.escape(url) + r"</loc>\s*<lastmod>)[^<]+(</lastmod>)")
+          new_text, n = pattern.subn(r"\g<1>" + today + r"\g<2>", text)
+          if n > 0:
+              p.write_text(new_text)
+              print(f"  ✓ {url} → {today}")
+          else:
+              print(f"  - {url} not found in sitemap (skipping)")
+          PY
+              updated=$((updated+1))
+            fi
+          done <<< "$changed_files"
+
+          echo "Processed $updated changed HTML file(s)."
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet sitemap.xml; then
+            echo "sitemap.xml unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "chore: auto-update sitemap lastmod"
+          git push

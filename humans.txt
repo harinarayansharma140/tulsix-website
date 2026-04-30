@@ -1,0 +1,27 @@
+/* TEAM */
+
+  Founder, CEO & CTO: Hari Narayan Sharma
+  Contact: contact [at] tulsix.com
+  LinkedIn: https://www.linkedin.com/in/hari-narayan-sharma-350818104
+  GitHub: https://github.com/harinarayansharma140
+  From: Mathura & Greater Noida, India
+
+  Hiring engineers, designers, QA, and PM — see /careers.html
+
+
+/* THANKS */
+
+  Our early-adopter CA firms — for trusting a young company with their practice.
+  CA Kuldeep Pandey of Tax Pandey — for the kind words and the partnership.
+  The open-source community behind React, .NET, Azure, GitHub Actions, and the rest of our stack.
+
+
+/* SITE */
+
+  Last update: 2026-04-30
+  Standards: HTML5, CSS3, ES2020+
+  Components: vanilla JS (no framework on the marketing site)
+  Hosting: GitHub Pages
+  Stack (CAPilot product): React, .NET 8, SQL Server, Azure
+  Built from: Greater Noida & Mathura, India
+  Engineered for: businesses across India and worldwide
