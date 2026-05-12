@@ -167,54 +167,6 @@
     };
   }
 
-  // ── HERO FLOATING ELEMENTS (homepage only, desktop only) ──
-  const floatsContainer=document.getElementById('heroFloats');
-  if(floatsContainer&&window.innerWidth>=960){
-    const leafSVG='<svg aria-hidden="true" viewBox="0 0 148 140" width="WW" height="HH" fill="currentColor"><path d="M30 0 Q74 55 74 120 Q74 130 64 130 Q58 130 50 120 Q10 55 30 0Z" opacity="0.85"/><path d="M118 0 Q74 55 74 120 Q74 130 84 130 Q90 130 98 120 Q138 55 118 0Z" opacity="0.85"/><path d="M74 50 Q62 75 74 100 Q86 75 74 50Z" opacity="0.4"/></svg>';
-    const codeSnippets=['const app = new CAPilot()','async fetchClients()','{status: "production"}','deploy --azure','git push origin main','npm run build','interface Client {','export default App','SELECT * FROM clients','res.status(200).json()','// production ready','dotnet publish -c Release','<Dashboard />','useEffect(() => {','border-radius: 8px;','JWT.verify(token)','pipeline: CI/CD','container.start()','api/v1/invoices','schema.validate()'];
-    const brackets=['{ }','< />','( )','[ ]','=> { }','/**/',';'];
-    function spawnFloat(){
-      const el=document.createElement('div');
-      el.classList.add('hero-float');
-      const type=Math.random();
-      if(type<0.35){
-        el.classList.add('hero-float--code');
-        el.textContent=codeSnippets[Math.floor(Math.random()*codeSnippets.length)];
-      }else if(type<0.55){
-        el.classList.add('hero-float--leaf');
-        const s=Math.random()*20+14;
-        el.innerHTML=leafSVG.replace('WW',s).replace('HH',s);
-      }else if(type<0.75){
-        el.classList.add('hero-float--dot');
-      }else if(type<0.9){
-        el.classList.add('hero-float--bracket');
-        el.textContent=brackets[Math.floor(Math.random()*brackets.length)];
-      }else{
-        el.classList.add('hero-float--ring');
-        const sz=Math.random()*30+10;
-        el.style.width=sz+'px';el.style.height=sz+'px';
-      }
-      el.style.left=Math.random()*100+'%';
-      el.style.bottom='-20px';
-      const dur=Math.random()*15+12;
-      el.style.animationDuration=dur+'s';
-      el.style.animationDelay=Math.random()*2+'s';
-      floatsContainer.appendChild(el);
-      setTimeout(function(){el.remove()},(dur+2)*1000);
-    }
-    for(let i=0;i<12;i++)setTimeout(spawnFloat,i*800);
-    const floatInterval=setInterval(spawnFloat,2200);
-    const heroEl=document.querySelector('.hero');
-    if(heroEl&&'IntersectionObserver' in window){
-      const hObs=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(!e.isIntersecting){clearInterval(floatInterval);hObs.disconnect()}
-        });
-      },{threshold:0});
-      hObs.observe(heroEl);
-    }
-  }
-
   // ── CURSOR SPOTLIGHT (homepage hero, desktop only) ──
   const hero=document.querySelector('.hero');
   const spot=document.getElementById('heroSpotlight');

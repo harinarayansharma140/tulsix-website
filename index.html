@@ -28,10 +28,10 @@
 <link rel="icon" type="image/svg+xml" href="tulsix-favicon.svg">
 <link rel="apple-touch-icon" href="tulsix-favicon.svg">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0E1017">
+<meta name="theme-color" content="#FAFAF7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="preload" as="image" href="capilot-dashboard.avif" type="image/avif" fetchpriority="high">
 <link rel="preload" as="image" href="capilot-dashboard.webp" type="image/webp" fetchpriority="high">
@@ -113,26 +113,9 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-noise"></div>
   <div class="hero-gradient"></div>
   <div class="hero-grid"></div>
-
-  <!-- CURSOR SPOTLIGHT -->
   <div class="hero-spotlight" id="heroSpotlight"></div>
-
-  <!-- AMBIENT GLOW ORBS -->
-  <div class="hero-glow hero-glow--1"></div>
-  <div class="hero-glow hero-glow--2"></div>
-  <div class="hero-glow hero-glow--3"></div>
-
-  <!-- ORBITAL ELEMENT -->
-  <div class="hero-orbit">
-    <div class="hero-orbit-ring"></div>
-    <div class="hero-orbit-dot"></div>
-  </div>
-
-  <!-- FLOATING CODE & LEAF ELEMENTS -->
-  <div class="hero-floats" id="heroFloats"></div>
 
   <div class="hero-content">
     <div class="hero-left">
@@ -141,7 +124,7 @@
       <p class="hero-sub">We build SaaS platforms, custom software, and digital products for ambitious businesses — engineered in India, deployed for clients across the globe.</p>
       <div class="hero-actions">
         <a href="#capilot" class="btn-teal">Explore CAPilot <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a href="#contact" class="btn-ghost">Start a Project <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="https://calendly.com/hari-tulsix/30min" target="_blank" rel="noopener noreferrer" class="btn-ghost">Book a Demo <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M2 6h12M5 1.5v3M11 1.5v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
       </div>
     </div>
     <div class="hero-right">
@@ -217,6 +200,13 @@
         <blockquote>"Technology should grow with your business, not hold it back."</blockquote>
       </div>
     </div>
+
+    <div class="about-stats reveal">
+      <div class="about-stat"><div class="num">2</div><div class="lbl">Live Products</div></div>
+      <div class="about-stat"><div class="num">6</div><div class="lbl">Service Capabilities</div></div>
+      <div class="about-stat"><div class="num">100<span>%</span></div><div class="lbl">Code &amp; IP Ownership</div></div>
+      <div class="about-stat"><div class="num">24<span>h</span></div><div class="lbl">Response Time</div></div>
+    </div>
   </div>
 </section>
 
@@ -290,6 +280,24 @@
           </div>
         </div>
       </div>
+
+      <!-- PLACEHOLDER: replace with second real testimonial when ready -->
+      <div class="testimonial-card testimonial-pending reveal" data-placeholder="true">
+        <span class="testimonial-pending-tag"><span class="pulse"></span>Pilot Story Coming Soon</span>
+        <h4>A new CA firm just onboarded.</h4>
+        <p>We're collecting their first-90-day experience now. Their story — what changed in their workflow, the hours they got back, the clients they finally serve well — will live here once it's earned.</p>
+        <div class="pending-meta">Multi-partner CA firm · Delhi NCR</div>
+      </div>
+
+      <!-- PLACEHOLDER: replace with third real testimonial when ready -->
+      <div class="testimonial-card testimonial-pending reveal" data-placeholder="true">
+        <span class="testimonial-pending-tag"><span class="pulse"></span>Be Featured Here</span>
+        <h4>Are you using CAPilot or building with us?</h4>
+        <p>If we've helped your firm or your business, we'd love to share your story. Drop us a line and we'll work with you on a short case-study quote that goes up here.</p>
+        <div class="pending-meta">
+          <a href="mailto:contact@tulsix.com" style="color:var(--teal);text-decoration:none">contact@tulsix.com</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -310,15 +318,34 @@
           </div>
           <span class="product-status live">Live</span>
         </div>
-        <p>The complete operating system for Chartered Accountant firms — client management, task tracking, GST invoicing, compliance monitoring, document vault, and team management in one integrated platform.</p>
-        <div class="product-card-tags">
-          <span class="product-card-tag">SaaS</span>
-          <span class="product-card-tag">Client Mgmt</span>
-          <span class="product-card-tag">GST Invoicing</span>
-          <span class="product-card-tag">Compliance</span>
-          <span class="product-card-tag">Dashboard</span>
+        <p>The complete operating system for Chartered Accountant firms — replacing the patchwork of spreadsheets, WhatsApp groups, and scattered tools with a single integrated platform built for how CAs actually work.</p>
+
+        <div class="product-card-section">
+          <span class="product-card-section-label">Key Features</span>
+          <ul class="product-card-features">
+            <li><span><strong>Client Management</strong> with PAN, GSTIN &amp; entity tracking</span></li>
+            <li><span><strong>Deadline-driven</strong> compliance &amp; task engine</span></li>
+            <li><span><strong>GST Invoicing</strong> with HSN/SAC, e-invoice ready</span></li>
+            <li><span><strong>Document Vault</strong> organized by client &amp; year</span></li>
+            <li><span><strong>Multi-user teams</strong> with role-based permissions</span></li>
+          </ul>
         </div>
-        <a href="capilot.html" class="product-card-link">Explore CAPilot <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+
+        <div class="product-card-section">
+          <span class="product-card-section-label">Technologies</span>
+          <div class="product-card-tags">
+            <span class="product-card-tag">React</span>
+            <span class="product-card-tag">.NET 8</span>
+            <span class="product-card-tag">SQL Server</span>
+            <span class="product-card-tag">Azure</span>
+            <span class="product-card-tag">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="product-card-footer">
+          <span class="product-card-outcome">Running in production · 7-day free trial</span>
+          <a href="capilot.html" class="product-card-link">Explore <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
       </div>
 
       <div class="product-card reveal">
@@ -329,44 +356,389 @@
           </div>
           <span class="product-status dev">Coming Soon</span>
         </div>
-        <p>A comprehensive school bus tracking and student safety platform — real-time GPS tracking, smart pickup/drop notifications, one-stop-before alerts, speed monitoring, panic system, and a parent mobile app with live ETA.</p>
-        <div class="product-card-tags">
-          <span class="product-card-tag">IoT</span>
-          <span class="product-card-tag">GPS Tracking</span>
-          <span class="product-card-tag">Safety Alerts</span>
-          <span class="product-card-tag">Parent App</span>
-          <span class="product-card-tag">Admin Dashboard</span>
-          <span class="product-card-tag">Multi-School SaaS</span>
+        <p>A school bus tracking and student safety platform purpose-built for Indian schools — live GPS, intelligent pickup alerts, panic system, and a parent app that finally answers "where is my child right now?"</p>
+
+        <div class="product-card-section">
+          <span class="product-card-section-label">Key Features</span>
+          <ul class="product-card-features">
+            <li><span><strong>Real-time GPS</strong> bus tracking with route playback</span></li>
+            <li><span><strong>Parent mobile app</strong> with live ETA &amp; notifications</span></li>
+            <li><span><strong>Smart pickup/drop</strong> &amp; one-stop-before alerts</span></li>
+            <li><span><strong>Driver behavior</strong> &amp; panic system for safety</span></li>
+            <li><span><strong>Multi-school admin</strong> dashboard with role permissions</span></li>
+          </ul>
         </div>
-        <span class="product-card-link disabled">Coming Soon</span>
+
+        <div class="product-card-section">
+          <span class="product-card-section-label">Technologies</span>
+          <div class="product-card-tags">
+            <span class="product-card-tag">IoT / GPS</span>
+            <span class="product-card-tag">React Native</span>
+            <span class="product-card-tag">Node.js</span>
+            <span class="product-card-tag">MQTT</span>
+            <span class="product-card-tag">Azure</span>
+          </div>
+        </div>
+
+        <div class="product-card-footer">
+          <span class="product-card-outcome">In development · Pilot schools welcome</span>
+          <span class="product-card-link disabled">Coming Soon</span>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section bg-900" id="services">
-  <div class="container">
-    <div class="section-label reveal">// What We Build</div>
-    <div class="section-title reveal">Services & Capabilities</div>
-    <p class="section-sub reveal">From concept to deployment — we handle the full product lifecycle with battle-tested engineering practices.</p>
-    <div class="services-grid">
-      <div class="service-card reveal"><div class="service-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div><h3>SaaS Product Development</h3><p>End-to-end SaaS platforms — architecture, backend, frontend, multi-tenancy, deployment, and scaling. We build production-ready products designed to handle real-world load and grow with your business, from MVP to enterprise.</p><span class="service-tag">Full-Stack · MVP → Scale · Multi-Tenant</span></div>
-      <div class="service-card reveal"><div class="service-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div><h3>Custom Web &amp; Mobile Apps</h3><p>Bespoke web and mobile applications tailored to your workflows — dashboards, portals, internal tools, customer-facing platforms — backed by a thoughtful UI/UX design system and pixel-perfect frontend.</p><span class="service-tag">React · .NET · Design Systems · UX</span></div>
-      <div class="service-card reveal"><div class="service-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div><h3>Cloud, DevOps &amp; Security</h3><p>Production-grade Azure infrastructure, CI/CD pipelines, custom domains, SSL, and observability. Plus security audits, vulnerability assessments, secure code reviews, and compliance-ready hardening built in from day one.</p><span class="service-tag">Azure · CI/CD · Security · Compliance</span></div>
-      <div class="service-card reveal"><div class="service-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div><h3>AI, ML &amp; Data Analytics</h3><p>Intelligent AI integrations — chatbots, document processing, predictive analytics, recommendation engines — plus full data pipelines, BI dashboards, and ETL workflows that turn raw data into actionable decisions.</p><span class="service-tag">AI · ML · BI · ETL</span></div>
-      <div class="service-card reveal"><div class="service-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 7V2"/><path d="M15 7V2"/><path d="M6 13V8a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3Z"/></svg></div><h3>APIs, Integrations &amp; IoT</h3><p>RESTful APIs, third-party integrations, payment gateways, messaging services, and connected IoT ecosystems — device dashboards, real-time monitoring, sensor pipelines, and edge connectivity that bridge devices and cloud.</p><span class="service-tag">REST · Webhooks · IoT · MQTT</span></div>
-      <div class="service-card reveal"><div class="service-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><h3>Technical Consultancy &amp; R&amp;D</h3><p>Architecture reviews, technology selection, scalability planning, and roadmap consulting. Plus R&amp;D — feasibility studies, MVP builds, and emerging-tech evaluation that turn ideas into validated, fundable prototypes.</p><span class="service-tag">Advisory · POC · MVP · Innovation</span></div>
+<!-- REAL IMPACT -->
+<section class="section" id="impact">
+  <div class="decor-gradient" style="top:10%;right:-100px;width:400px;height:400px;opacity:.3"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="section-label reveal">// Real Impact</div>
+    <div class="section-title reveal">Solutions That Drive<br><span style="color:var(--teal)">Real Business Outcomes</span></div>
+    <p class="section-sub reveal">We don't just write code — we ship products people run their businesses on. Here's a look at what we've delivered and what we're building.</p>
+
+    <div class="impact-grid">
+
+      <!-- CAPilot — real project -->
+      <div class="impact-card reveal">
+        <div class="impact-card-header">
+          <div class="impact-card-title">
+            <h3>CAPilot — Practice Management OS</h3>
+            <span class="scope">Tax Pandey · CA Firm, India</span>
+          </div>
+          <span class="product-status live">Live</span>
+        </div>
+        <p class="impact-card-desc">Replaced spreadsheets, WhatsApp groups, and manual invoicing at a working CA practice with one integrated workflow — from client onboarding to compliance tracking to GST invoicing.</p>
+
+        <div class="impact-section">
+          <span class="impact-section-label">Technologies</span>
+          <div class="impact-tech">
+            <span class="impact-tech-chip">React</span>
+            <span class="impact-tech-chip">.NET 8</span>
+            <span class="impact-tech-chip">SQL Server</span>
+            <span class="impact-tech-chip">Azure</span>
+            <span class="impact-tech-chip">TypeScript</span>
+          </div>
+        </div>
+
+        <div class="impact-section">
+          <span class="impact-section-label">Key Outcomes</span>
+          <ul class="impact-outcomes">
+            <li>Hours saved every week on task &amp; deadline tracking</li>
+            <li>Professional GST invoicing replacing manual entry</li>
+            <li>Compliance deadlines hit on time, every time</li>
+            <li>Client trust: <em style="color:var(--teal-light)">"treated our practice like their own"</em></li>
+          </ul>
+        </div>
+
+        <div class="impact-card-cta">
+          <a href="case-studies/capilot.html">Read Case Study <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <!-- STIS — real product in development -->
+      <div class="impact-card reveal">
+        <div class="impact-card-header">
+          <div class="impact-card-title">
+            <h3>STIS — School Transport Intelligence</h3>
+            <span class="scope">TulsiX Internal · School Transport &amp; Safety</span>
+          </div>
+          <span class="product-status dev">In Development</span>
+        </div>
+        <p class="impact-card-desc">Building a connected IoT + SaaS platform that gives parents live answers to "where is my child right now?" — combining GPS hardware, real-time pipelines, and a mobile app designed for everyday school routines.</p>
+
+        <div class="impact-section">
+          <span class="impact-section-label">Technologies</span>
+          <div class="impact-tech">
+            <span class="impact-tech-chip">IoT / GPS</span>
+            <span class="impact-tech-chip">React Native</span>
+            <span class="impact-tech-chip">Node.js</span>
+            <span class="impact-tech-chip">MQTT</span>
+            <span class="impact-tech-chip">Azure</span>
+          </div>
+        </div>
+
+        <div class="impact-section">
+          <span class="impact-section-label">Expected Outcomes</span>
+          <ul class="impact-outcomes">
+            <li>Real-time bus location for parents &amp; school admin</li>
+            <li>Smart pickup/drop alerts &amp; one-stop-before notifications</li>
+            <li>Driver behavior monitoring + panic system for safety</li>
+            <li>Replaces 5+ disconnected tools per school</li>
+          </ul>
+        </div>
+
+        <div class="impact-card-cta">
+          <a href="#contact">Pilot With Us <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER: Replace with first real client project once delivered -->
+      <div class="impact-card reveal" data-placeholder="true">
+        <div class="impact-card-header">
+          <div class="impact-card-title">
+            <h3>Custom SaaS Build — Healthcare</h3>
+            <span class="scope">Confidential Client · Healthcare &amp; Wellness</span>
+          </div>
+          <span class="product-status planned">On Request</span>
+        </div>
+        <p class="impact-card-desc">Available as a service engagement: end-to-end SaaS platform for healthcare providers — patient portal, scheduling, secure document handling, and analytics. Built to your spec on a fixed-scope sprint cycle.</p>
+
+        <div class="impact-section">
+          <span class="impact-section-label">Sample Stack</span>
+          <div class="impact-tech">
+            <span class="impact-tech-chip">React</span>
+            <span class="impact-tech-chip">Next.js</span>
+            <span class="impact-tech-chip">.NET 8</span>
+            <span class="impact-tech-chip">Azure</span>
+            <span class="impact-tech-chip">HIPAA-aware</span>
+          </div>
+        </div>
+
+        <div class="impact-section">
+          <span class="impact-section-label">What You Get</span>
+          <ul class="impact-outcomes">
+            <li>Architecture review &amp; technical SOW in week one</li>
+            <li>Working demo every 2 weeks — no big-bang reveals</li>
+            <li>Production deployment with security &amp; compliance baked in</li>
+            <li>Full source &amp; IP ownership on delivery</li>
+          </ul>
+        </div>
+
+        <div class="impact-card-cta">
+          <a href="#contact">Discuss Your Build <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER: Replace with second real client project once delivered -->
+      <div class="impact-card reveal" data-placeholder="true">
+        <div class="impact-card-header">
+          <div class="impact-card-title">
+            <h3>Custom SaaS Build — Fintech</h3>
+            <span class="scope">Confidential Client · Fintech &amp; SMB</span>
+          </div>
+          <span class="product-status planned">On Request</span>
+        </div>
+        <p class="impact-card-desc">Available as a service engagement: SaaS platforms for fintech &amp; SMB operations — KYC flows, payment integrations, WhatsApp Business automation, and dashboards that surface the metrics your team actually uses.</p>
+
+        <div class="impact-section">
+          <span class="impact-section-label">Sample Stack</span>
+          <div class="impact-tech">
+            <span class="impact-tech-chip">React</span>
+            <span class="impact-tech-chip">Node.js</span>
+            <span class="impact-tech-chip">Postgres</span>
+            <span class="impact-tech-chip">WhatsApp API</span>
+            <span class="impact-tech-chip">Azure</span>
+          </div>
+        </div>
+
+        <div class="impact-section">
+          <span class="impact-section-label">What You Get</span>
+          <ul class="impact-outcomes">
+            <li>Payment gateway &amp; KYC integration done right</li>
+            <li>Automated customer comms via WhatsApp / email / SMS</li>
+            <li>Real-time dashboards &amp; reporting</li>
+            <li>DPDP / IT-Act compliant from day one</li>
+          </ul>
+        </div>
+
+        <div class="impact-card-cta">
+          <a href="#contact">Discuss Your Build <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
     </div>
+
+    <div class="reveal" style="text-align:center;margin-top:3rem">
+      <a href="#contact" class="btn-ghost" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;font-size:.85rem">Discuss Your Project <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES & CAPABILITIES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label reveal" style="text-align:center">// What We Build</div>
+    <div class="section-title reveal" style="text-align:center">Services &amp; Capabilities</div>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto">The full surface area of what we deliver — from frontend craft to compliance-ready operations. End-to-end, production-grade, built once and built right.</p>
+
+    <div class="tech-grid">
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
+        <h3>Web Development</h3>
+        <p>Modern, responsive web applications built with cutting-edge frameworks and a quality-first engineering culture.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">React</span><span class="tech-card-chip">Next.js</span><span class="tech-card-chip">Node.js</span><span class="tech-card-chip">TypeScript</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></div>
+        <h3>Mobile App Development</h3>
+        <p>Native and cross-platform mobile apps that deliver smooth, exceptional user experiences across iOS and Android.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">React Native</span><span class="tech-card-chip">Flutter</span><span class="tech-card-chip">iOS</span><span class="tech-card-chip">Android</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+        <h3>Cloud Solutions</h3>
+        <p>Scalable cloud infrastructure, migration services, and cloud-native architectures for modern businesses.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Azure</span><span class="tech-card-chip">AWS</span><span class="tech-card-chip">GCP</span><span class="tech-card-chip">Docker</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/><path d="M12 22V12M2 7l10 5 10-5"/></svg></div>
+        <h3>SaaS Platforms</h3>
+        <p>End-to-end SaaS platform development from concept to deployment — multi-tenancy, billing, and scale baked in.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Microservices</span><span class="tech-card-chip">APIs</span><span class="tech-card-chip">DB Design</span><span class="tech-card-chip">DevOps</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg></div>
+        <h3>Data Analytics &amp; BI</h3>
+        <p>Transform raw data into actionable insights with advanced analytics, BI dashboards, and reporting platforms.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Power BI</span><span class="tech-card-chip">Tableau</span><span class="tech-card-chip">Python</span><span class="tech-card-chip">SQL</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>DevOps &amp; Automation</h3>
+        <p>Streamline development workflows with CI/CD pipelines, infrastructure-as-code, and continuous delivery automation.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">GitHub Actions</span><span class="tech-card-chip">Docker</span><span class="tech-card-chip">Kubernetes</span><span class="tech-card-chip">Terraform</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Enterprise Software</h3>
+        <p>Robust enterprise-grade applications designed for scalability, security, and performance under real-world load.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">.NET 8</span><span class="tech-card-chip">C#</span><span class="tech-card-chip">Java</span><span class="tech-card-chip">Enterprise APIs</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Security &amp; Operations</h3>
+        <p>Comprehensive security audits, vulnerability assessments, monitoring, and operational excellence for your systems.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Audits</span><span class="tech-card-chip">Monitoring</span><span class="tech-card-chip">RBAC</span><span class="tech-card-chip">Compliance</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg></div>
+        <h3>System Integrations</h3>
+        <p>Seamless integration of disparate systems and third-party services — turning tool sprawl into a single workflow.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">APIs</span><span class="tech-card-chip">Webhooks</span><span class="tech-card-chip">ETL</span><span class="tech-card-chip">Middleware</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+        <h3>IT Consulting</h3>
+        <p>Strategic technology consulting to drive digital transformation — architecture, roadmaps, and tech selection.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Strategy</span><span class="tech-card-chip">Architecture</span><span class="tech-card-chip">Process</span><span class="tech-card-chip">Optimization</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <h3>SEO &amp; Digital Marketing</h3>
+        <p>Optimize your online presence and drive targeted traffic — technical SEO, content strategy, and conversion analytics.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Technical SEO</span><span class="tech-card-chip">Content</span><span class="tech-card-chip">Analytics</span><span class="tech-card-chip">CRO</span></div>
+      </div>
+
+      <div class="tech-card reveal">
+        <div class="tech-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Quality Assurance &amp; Testing</h3>
+        <p>Comprehensive testing strategies ensuring your software is reliable, secure, and performs flawlessly at scale.</p>
+        <div class="tech-card-chips"><span class="tech-card-chip">Automation</span><span class="tech-card-chip">Manual QA</span><span class="tech-card-chip">Performance</span><span class="tech-card-chip">Security</span></div>
+      </div>
+
+    </div>
+
     <div class="reveal" style="text-align:center;margin-top:3rem">
       <a href="services.html" class="btn-ghost" style="display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;font-size:.85rem">Explore Services in Depth <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 </section>
 
+<!-- INDUSTRIES WE SERVE -->
+<section class="section section-light" id="industries">
+  <div class="container">
+    <div class="section-label reveal" style="text-align:center">// Industries</div>
+    <div class="section-title reveal" style="text-align:center">Industries We Serve</div>
+    <p class="section-sub reveal" style="text-align:center;margin:0 auto">From CA firms to school transport, fintech startups to enterprise SaaS — we adapt our engineering depth to the specific shape of each industry's problems.</p>
+
+    <div class="industries-grid">
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Education</h3>
+        <p>Learning platforms, school operations, and administrative automation that scale.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" x2="16" y1="13" y2="13"/><line x1="8" x2="16" y1="17" y2="17"/></svg></div>
+        <h3>Legal &amp; Accounting</h3>
+        <p>Practice management, compliance workflows, GST invoicing &amp; document processing — home of CAPilot.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></div>
+        <h3>Healthcare &amp; Wellness</h3>
+        <p>Patient portals, scheduling, health tracking, and HIPAA-aware platforms built for trust.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div>
+        <h3>Fintech</h3>
+        <p>Payment integrations, KYC flows, risk dashboards, and customer communication automation.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3>E-commerce &amp; Retail</h3>
+        <p>Storefronts, inventory orchestration, customer insights, and personalization at scale.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg></div>
+        <h3>Enterprise Software</h3>
+        <p>Workflow automation, business intelligence, and system integration across departments.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div>
+        <h3>Startups &amp; SMEs</h3>
+        <p>MVP-to-scale builds, founder-friendly engagements, and digital transformation roadmaps.</p>
+      </div>
+
+      <div class="industry-card reveal">
+        <div class="industry-card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/></svg></div>
+        <h3>Transportation &amp; Mobility</h3>
+        <p>Fleet tracking, IoT pipelines, parent/driver apps, and safety platforms — home of STIS.</p>
+      </div>
+
+      <div class="industry-card industry-cta reveal">
+        <h3>Don't see your industry?</h3>
+        <p>We adapt our engineering depth to whatever vertical you're in. Tell us about your problem — we love hard ones.</p>
+        <a href="#contact">Discuss Your Industry <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MID-PAGE CTA BANNER (after Industries) -->
+<div class="cta-banner reveal">
+  <div class="cta-banner-content">
+    <div class="section-label">// Let's Talk</div>
+    <h3>Ready to start building<br>something <em>real</em>?</h3>
+    <p>Skip the long form. Grab a 30-minute slot and we'll talk through your idea, scope, and what it'd take to ship — no obligations, no pitch deck.</p>
+  </div>
+  <div class="cta-banner-actions">
+    <a href="https://calendly.com/hari-tulsix/30min" target="_blank" rel="noopener noreferrer" class="btn-teal">Book a 30-min Call <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M2 6h12M5 1.5v3M11 1.5v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+    <a href="#contact" class="btn-ghost">Or Send a Message <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+
 <!-- HOW WE WORK -->
-<section class="section" id="process">
+<section class="section section-light" id="process">
   <div class="decor-gradient" style="top:50%;right:-150px;opacity:.4;transform:translateY(-50%)"></div>
   <div class="decor-gradient" style="bottom:-100px;left:20%;width:250px;height:250px;opacity:.3"></div>
   <div class="container" style="position:relative;z-index:1">
@@ -402,6 +774,19 @@
     </div>
   </div>
 </section>
+
+<!-- MID-PAGE CTA BANNER (after Process) -->
+<div class="cta-banner cta-banner--accent reveal">
+  <div class="cta-banner-content">
+    <div class="section-label">// For CA Firms</div>
+    <h3>Run your CA firm on <em>CAPilot</em>.<br>Try it free for 7 days.</h3>
+    <p>Stop juggling spreadsheets, WhatsApp groups, and 5 different tools. CAPilot replaces all of it — client management, compliance, GST invoicing, and document vault — in one platform built specifically for how CAs actually work.</p>
+  </div>
+  <div class="cta-banner-actions">
+    <a href="capilot.html" class="btn-teal">See CAPilot in Action <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://capilot.tulsix.com" target="_blank" rel="noopener noreferrer" class="btn-ghost">Open Live App <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M7 3h6v6M13 3 5 11M11 5v8H3V5h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
 
 <!-- FOUNDER -->
 <section class="section bg-900" id="founder">
